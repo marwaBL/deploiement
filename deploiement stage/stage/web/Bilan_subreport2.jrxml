@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bilan_subreport2" pageWidth="555" pageHeight="802" columnWidth="515" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="db0cef8c-97ef-4239-b2a5-90acea571d7f">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="98"/>
+	<import value="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="univG" class="java.lang.String"/>
+	<parameter name="etabG" class="java.lang.String"/>
+	<field name="gradeCh" class="java.lang.Object"/>
+	<field name="prenomCh" class="java.lang.String"/>
+	<field name="nomCh" class="java.lang.String"/>
+	<field name="cinCh" class="java.lang.String"/>
+	<field name="etaCodeEtab2" class="java.lang.Object"/>
+	<group name="gradecorpsB">
+		<groupExpression><![CDATA[$F{gradeCh}]]></groupExpression>
+		<groupHeader>
+			<band height="29">
+				<staticText>
+					<reportElement uuid="bee4873d-94eb-439c-b260-3ea527cbdc1e" x="0" y="0" width="43" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="760a941c-41df-4780-a801-94c472b74a21" x="70" y="0" width="100" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nom et Prénom]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="4851ea33-dd02-405c-8ca4-b22aa3a45635" x="220" y="0" width="44" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CIN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="72471956-cefb-4bc5-a1a4-93732f6b7f23" x="288" y="0" width="89" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Etablissement]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="8cd790f2-9890-45aa-bb08-c4d7075576d3" x="382" y="0" width="72" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Université]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="22">
+				<textField>
+					<reportElement uuid="d4e249e0-b361-4a36-a5f3-9b1bb858137a" x="487" y="0" width="28" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$V{gradecorpsB_COUNT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="149ca5c2-bcc3-41fe-842d-fc7cfe8ce06c" x="453" y="1" width="62" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[total:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<columnHeader>
+		<band height="148" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="fede2d5b-b4d8-4a2d-8852-97643aaaa8fe" x="19" y="128" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[-Corps A :                                          ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="83776f95-df50-4a76-ae2e-c1c36c518486" x="5" y="4" width="269" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[II- LISTE DES MEMBRES DU LR OU DE  l’UR]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="5e22e8cd-edd0-493e-82d5-b282fd128746" x="0" y="29" width="515" height="62"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="a643ad43-8762-417c-9797-186ce21dff1f" x="5" y="38" width="510" height="62"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NB :  - Tout chercheur doit remplir une «Fiche individuelle», à joindre dans le document «ANNEXES».
+         - Tout chercheur,  faisant partie d'un LR ou d'une UR, ne peut  faire partie d’une autre structure de recherche.
+         - Le n° de la CIN de chaque chercheur est obligatoire sous peine de ne pas être pris en considération.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dfe85e53-fce2-4615-acd4-97fb03dd449e" x="7" y="108" width="487" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[a - Enseignants-chercheurs permanents  (corps A et B) et doctorants :]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d0144d3d-ec3b-4cfd-a260-f119955a09dc" x="0" y="2" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{gradeCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="638e3e73-3369-4ca3-986c-74bf24a8051d" x="70" y="3" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a987723b-4f10-4755-8bbb-956cfbba040a" x="118" y="3" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{prenomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="98c26499-3385-4cfe-9ae1-cfc239a2046c" x="220" y="3" width="65" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cinCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e90757e8-f6e3-498a-8b8f-a26339d51b3c" x="288" y="2" width="246" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{etaCodeEtab2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

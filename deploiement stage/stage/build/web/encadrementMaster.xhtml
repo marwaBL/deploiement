@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+                <link href="css/autocomplete.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+                
+ 
+                     
+           
+        </h:head>
+
+        <h:body>
+ 
+           
+
+               
+                     <ui:include src="header.xhtml" />
+              
+
+                
+
+              
+               
+                 
+    
+ 
+    
+              
+           <h:form id="form2" style="width:1500px;margin-left: 8%;margin-top: 30px;  ">
+                <p:growl id="growll" showDetail="false" sticky="true" life="2000"   />  
+               <p:selectOneRadio id="labounite"   style="margin-left: 900px; margin-bottom: -25px;  color: #ffffff; position: absolute;z-index: 99999"
+                               value="#{encadrementMaster.type}"
+                          required="true"      >  
+              <f:selectItem itemLabel="En cours" itemValue="En cours"  />  
+          <f:selectItem itemLabel="Soutenue" itemValue="Soutenue"  /> 
+             
+          <p:ajax listener="#{encadrementMaster.genererlistEncadrement()}" update="@form"/>
+        </p:selectOneRadio>
+                <div class="form-group">
+                  <div class="col-lg-10">
+               <p:dataTable id="cars" var="car" value="#{encadrementMaster.listeencadmaster}"
+                            paginator="true" rows="5"  emptyMessage="Pas d'encadrement "   
+        paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"  
+        rowsPerPageTemplate="5,10,15"  styleClass="borderless"  paginatorPosition="top">
+<f:facet name="header"  >  
+                <p:outputLabel   value="Liste Encadrements Master " />
+           
+                          
+                            
+                          
+            </f:facet> 
+                   <p:column >
+                       <p:commandButton id="selectButton"  update="@form"
+                                         oncomplete="carDialog.show()" icon="ui-icon-search" title="Détail"  >
+                            <f:setPropertyActionListener value="#{car}"
+                                                         target="#{encadrementMaster.chselected}" />
+                        </p:commandButton>
+                    </p:column>
+                   <p:column headerText="Nom et prénom" width="40">
+                        <h:outputText value="#{car.nomCh} #{car.prenomCh}" />
+                    </p:column>
+
+                   <p:column headerText="Sujet" width="680">
+                        <h:inputText value="#{car.sujetRechCh}" style="width: 100%; "   styleClass="form-control"   />
+                    </p:column>
+
+                   <p:column headerText="Avancement"  >
+                       <p:inputMask value="#{car.avancement}" disabled="#{car.avancement==99}" mask="99" style="width: 50%;  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075); "   styleClass="form-controltest"  >
+                            <f:validateLongRange maximum="99"/>
+                        </p:inputMask>
+                    </p:column>
+
+                    <p:column >
+                        <p:commandButton id="SaveButton"  update="@form"  action="#{encadrementMaster.valider()}"
+                          icon="ui-icon-disk" title="Enregistrer">
+                            <f:setPropertyActionListener value="#{car}"
+                                                         target="#{encadrementMaster.chselected}" />
+                        </p:commandButton>
+                    </p:column>
+                    
+
+                </p:dataTable>
+                  </div>
+                </div>
+                <p:dialog header="Detail Chercheur" widgetVar="carDialog" resizable="false"
+                    id="carDlg" showEffect="fade" hideEffect="fade" modal="true">
+
+                    <h:panelGrid id="display" columns="2" cellpadding="4"
+                        style="margin:0 auto;">
+
+                        <p:graphicImage value="#{encadrementMaster.image}" width="80" height="80"/> 
+                    <h:outputText id="modelNo" value="#{encadrementMaster.chselected.nomCh} #{encadrementMaster.chselected.prenomCh}"  /> 
+                  <h:outputText id="CIN" value="CIN" />  
+                  <h:outputText  value="#{encadrementMaster.chselected.cinCh} " styleClass="col-lg-2 control-label" />  
+                  <h:outputText id="tel" value="Tel" />  
+                  <h:outputText  value="#{encadrementMaster.chselected.telCh} " styleClass="col-lg-2 control-label" />  
+                  
+
+
+                    </h:panelGrid>
+
+                </p:dialog>
+
+            </h:form>
+            
+             
+
+        </h:body>
+
+    </f:view>
+</html>
+

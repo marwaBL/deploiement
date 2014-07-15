@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c3bad27-955e-40a0-8cdb-e68ece1dafbf">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nomCh" class="java.lang.String"/>
+	<field name="prenomCh" class="java.lang.String"/>
+	<field name="cinCh" class="java.lang.String"/>
+	<field name="annee" class="java.lang.Integer"/>
+	<field name="codeEtab" class="java.lang.Object"/>
+	<field name="cheIdCh" class="java.lang.Object"/>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4887a658-2d3b-4de7-887a-ad7e1514a955" x="20" y="23" width="312" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[c- Etudiants en mastère de recherche ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f28c73b6-962f-452f-8d7f-2a5cd2f19ad0" x="4" y="5" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="39509618-6f59-4f7e-8f1c-8dc15fcc5859" x="179" y="5" width="50" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81065623-ac36-4dda-b1f3-a3831de580c6" x="244" y="5" width="84" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etablissement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1c508adb-ad80-4226-bcf9-485d0fe38b06" x="332" y="3" width="100" height="35"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Année de la premère inscription]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8cc16550-a19a-4bcb-b922-074711e406af" x="455" y="3" width="89" height="35"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom de l’encadreur
+]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement uuid="61c2486c-a2ba-4023-a30d-833c25dedb1d" x="1" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f0a53325-63e0-4690-ba83-7c875f3d11ce" x="94" y="0" width="78" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{prenomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e62fe9bd-2558-4085-a168-0b24579ec07f" x="173" y="0" width="71" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cinCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fff6846b-6df2-444c-8fba-8ec24a3fe905" x="244" y="0" width="64" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{codeEtab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3f349038-fb18-455f-a946-770ee729a983" x="332" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{annee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5d6dc348-3367-4d5f-8a6c-5088cc793a87" x="455" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cheIdCh}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

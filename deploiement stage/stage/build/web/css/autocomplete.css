@@ -1,0 +1,311 @@
+.ui-autocomplete .ui-inputfield  {
+   /* width: auto;
+    zoom: 1;
+    cursor: pointer;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position:static;*/
+   padding:8px 12px;
+   width:40% !important;
+  font-size:14px;
+  color:#666666;background-color:#ffffff;
+  
+  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+}
+.ui-autocomplete-input:focus, .ui-autocomplete a.ui-corner-all.sbiAnchor:hover {
+   border-color:#66afe9;
+
+  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6)
+}
+.ui-autocomplete .ui-autocomplete-panel .ui-autocomplete-list {
+   background: #0e80e5;
+}
+
+.ui-autocomplete .ui-autocomplete-panel .ui-autocomplete-list-item {
+   /* border:0px none;
+    cursor:pointer;
+    font-weight:normal;
+    margin:1px 0;
+    padding:3px 5px;
+    text-align:left;*/
+    background: #0e80e5;
+}
+.ui-datatable table
+{border-collapse:collapse;width:100%;}
+.ui-datatable .ui-datatable-header,.ui-datatable .ui-datatable-footer
+{text-align:center;padding:4px 10px;}
+.ui-datatable.borderless .ui-datatable-header
+{border-bottom:0px none;background-color:#d9edf7;}
+.ui-datatable .ui-datatable-footer
+{border-top:0px none;background-color:#d9edf7;}
+.ui-datatable thead th, .ui-datatable tfoot td
+{text-align:center;}
+.ui-datatable thead th,.ui-datatable tbody td,.ui-datatable tfoot td
+{padding:4px 10px;overflow:hidden;white-space:nowrap;border-width:1px;border-style:solid;}
+.ui-datatable .borderless tbody td
+{border-color:inherit; background: cadetblue}
+.ui-datatable .ui-sortable-column
+{cursor:pointer;}
+.ui-datatable div.ui-dt-c
+{position:relative;}
+.ui-datatable .ui-sortable-column-icon
+{display:inline-block;margin:-3px 0px -3px 2px;}
+.ui-datatable .ui-column-filter
+{display:block;width:100px;margin:auto;}
+.ui-datatable .ui-expanded-row
+{border-bottom:0px none;}
+.ui-datatable .ui-expanded-row-content
+{border-top:0px none;}
+.ui-datatable .ui-row-toggler
+{cursor:pointer;}
+.ui-datatable tr.ui-state-highlight
+{cursor:pointer;}
+.ui-datatable .ui-selection-column .ui-chkbox-all
+{display:block;margin:0px auto;width:16px;height:16px;}
+.ui-datatable-scrollable table
+{table-layout:fixed;}
+.ui-datatable-scrollable-body
+{overflow:auto;}
+.ui-datatable-scrollable-header,.ui-datatable-scrollable-footer
+{overflow:hidden;border:0px none;}
+.ui-datatable-scrollable .ui-datatable-scrollable-header,.ui-datatable-scrollable .ui-datatable-scrollable-footer
+{position:relative;} 
+.ui-datatable-scrollable .ui-datatable-scrollable-header td
+{font-weight:normal;}
+.ui-datatable-scrollable-body::-webkit-scrollbar
+{-webkit-appearance:none;width:15px;background-color:transparent;}
+.ui-datatable-scrollable-body::-webkit-scrollbar-thumb
+{border-radius:8px;border:1px solid white;background-color:rgba(194,194,194,.5);}
+.ui-datatable .ui-datatable-data tr.ui-state-hover
+{border-color:inherit;font-weight:inherit;cursor:pointer;}
+.ui-datatable .ui-paginator,.ui-datatable .ui-paginator
+{padding:2px;}
+.ui-column-dnd-top, ui-column-dnd-bottom
+{display:none;position:absolute;}
+.ui-column-dnd-top .ui-icon, ui-column-dnd-bottom .ui-icon
+{position:absolute;top:-4px;}
+/* InCell Editing */.ui-datatable .ui-cell-editor-input
+{display:none;}
+.ui-datatable .ui-row-editing .ui-cell-editor .ui-cell-editor-output
+{display:none;}
+.ui-datatable .ui-row-editing .ui-cell-editor .ui-cell-editor-input
+{display:block;}
+.ui-datatable .ui-row-editor span
+{cursor:pointer;display:inline-block;}
+.ui-datatable .ui-row-editor .ui-icon-pencil
+{display:inline-block;}
+.ui-datatable .ui-row-editing .ui-row-editor .ui-icon-pencil
+{display:none;}
+.ui-datatable .ui-row-editor .ui-icon-check,.ui-datatable .ui-row-editor .ui-icon-close
+{display:none;}
+.ui-datatable .ui-row-editing .ui-row-editor .ui-icon-check,.ui-datatable .ui-row-editing .ui-row-editor .ui-icon-close
+{display:inline-block;}
+.ui-datatable .ui-datatable-data tr.ui-row-editing td.ui-editable-column,.ui-datatable .ui-datatable-data td.ui-cell-editing
+{padding:0;margin:0;}
+/*resizer */
+.ui-datatable .ui-column-resizer
+{width:8px;height:20px;padding:0px;cursor:col-resize;background-image:url("/ScraperOnWeb/javax.faces.resource/spacer/dot_clear.gif.jsf?ln=primefaces");margin:-4px -10px -4px 0px;float:right;}
+.ui-datatable .ui-filter-column .ui-column-resizer
+{height:45px;}
+.ui-datatable .ui-column-resizer-helper
+{width:1px;position:absolute;z-index:10;display:none;}
+.ui-datatable-resizable
+{padding-bottom:1px;/*fix for webkit overlow*/overflow:auto;}
+.ui-datatable-resizable table
+{table-layout:fixed;}
+.ui-datatable-rtl
+{direction:rtl;}
+.ui-datatable-rtl.ui-datatable thead th, .ui-datatable-rtl.ui-datatable tfoot td
+{text-align:right;}
+
+
+
+.ui-datatable.borderless .ui-datatable-data tr,
+.ui-datatable.borderless .ui-datatable-data-empty tr,
+.ui-datatable.borderless .ui-datatable-data td,
+
+.ui-datatable.borderless .ui-datatable-data-empty td {
+   /* border-style: none; */
+       /* background-color:#d9edf7*/
+}
+.borderless thead tr .ui-state-default[role="columnheader"] { background :#446e9b; color: #ffffff; }
+
+.ui-datatable-header {
+    background: #446e9b !important;
+    color: #ffffff !important;
+}
+ .ui-datatable.borderless .ui-paginator{
+        background:#446e9b !important;   
+      }
+  .ui-inputMask .ui-inputfield  {
+   /* width: auto;
+    zoom: 1;
+    cursor: pointer;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position:static;*/
+   padding:8px 12px;
+   width:40% !important;
+  font-size:14px;
+  color:#666666;background-color:#ffffff;
+  
+  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+}
+
+/*ui-inputfield ui-widget ui-state-default ui-corner-all 
+hasDatepicker ui-state-hover{
+    background: #446e9b !important;
+}
+.ui-inputfield ui-widget ui-state-default ui-corner-all 
+hasDatepicker  {
+   padding:8px 12px;width:40%;
+  font-size:14px;
+  color:#666666;background-color:#ffffff;
+  border:1px solid #cccccc;border-radius:4px;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+}*/
+.ui-inputMask-input:focus, .ui-inputMask a.ui-corner-all.sbiAnchor:hover {
+   border-color:#66afe9;
+
+  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6)
+}  
+
+.ui-tabs { 
+    position: relative; 
+    padding: 0px; 
+    zoom: 1; 
+    
+} /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+
+.ui-tabs .ui-tabs-nav { 
+    
+    background:#ffffff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+   
+        border-bottom:1px solid #dddddd;
+}
+
+.ui-tabs .ui-tabs-nav li { 
+    /*list-style: none; 
+    float: left; 
+    position: relative; 
+    margin: 0 .2em 1px 0;  
+    padding: 0; 
+    white-space: nowrap; */
+  border: 1px solid #dddddd;
+    float:left;
+    margin-bottom:-1px;
+     margin-right: -1px;
+     background: #ffffff;
+}
+
+.ui-tabs .ui-tabs-nav li a { 
+   /* float: left; 
+    padding: .5em 1em; 
+    text-decoration: none; */
+   color: #446e9b;
+   margin:0px;line-height:1.42857143;border:1px solid transparent;border-radius:2px 2px 0 0;
+}
+.ui-tabs .ui-tabs-nav li a:hover { 
+   border-color: #446e9b;
+  /* border-color:#eeeeee #eeeeee #dddddd;*/}
+.ui-tabs-nav li.active>a,.ui-tabs-nav>li.active>a:hover,.ui-tabs-nav>li.active>a:focus
+{color:#666666;background-color:#ffffff;border:1px solid #dddddd;border-bottom-color:transparent;cursor:default}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, 
+.ui-tabs .ui-tabs-nav li.ui-state-disabled a, 
+.ui-tabs .ui-tabs-nav li.ui-state-processing a { 
+    cursor: text; background: #ffffff;
+    
+}
+
+.ui-tabs .ui-tabs-nav li a, 
+.ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { 
+    cursor: pointer; 
+} /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+
+.ui-tabs .ui-tabs-panel { 
+    border-width: 0; 
+    padding: 1em 1.4em; 
+   
+    background: none; 
+}
+
+.ui-tabs .ui-tabs-nav li { 
+    display: block; 
+}
+
+.ui-tabs .ui-tabs-nav li .ui-icon { 
+    float: left; 
+    margin: 0.4em 0.2em 0 0; 
+    
+    cursor: pointer; 
+}
+
+/* per orientation settings */
+.ui-tabs.ui-tabs-top .ui-tabs-nav li { 
+    border-bottom: 0;
+    top: 1px; 
+}
+
+.ui-tabs.ui-tabs-bottom .ui-tabs-nav li { 
+    border-top: 0;
+}
+
+.ui-tabs.ui-tabs-top .ui-tabs-nav { 
+   /* padding: .2em .2em 0; */
+  
+}
+
+.ui-tabs.ui-tabs-bottom .ui-tabs-nav { 
+    padding: 0 .2em .2em; 
+   
+}
+.ui-inputfield {
+   /* margin: 0;
+    outline: medium none;
+    padding: 4px;
+    font-weight: normal;*/
+}
+
+.ui-widget-header .ui-inputfield,
+.ui-widget-content .ui-inputfield {
+    font-weight: normal;
+   
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+    background: #ffffff;
+    -moz-box-shadow: inset 0 2px 2px #8f8f8f;
+    -webkit-box-shadow: inset 0 2px 2px #8f8f8f;
+    box-shadow: inset 0 2px 2px #8f8f8f;
+    color: #333333;
+    font-weight: normal;
+    
+}
+
+.ui-inputfield.ui-state-focus, .ui-widget-content .ui-inputfield.ui-state-focus, .ui-widget-header .ui-inputfield.ui-state-focus {
+    -moz-box-shadow: 0px 0px 5px #fbcb09, inset 0 2px 2px #8f8f8f;
+    -webkit-box-shadow: 0px 0px 5px #fbcb09, inset 0 2px 2px #8f8f8f;
+    box-shadow: 0px 0px 5px #fbcb09, inset 0 2px 2px #8f8f8f;
+    font-weight: normal;
+    /* background: #0e80e5 !important;*/
+}
+.ui-datepicker {
+    padding:8px 12px;width:40%;
+  font-size:14px;
+/*  color:#666666;background-color:#ffffff;*/
+  border:1px solid #cccccc;border-radius:4px;
+  box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+  
+}
+ .ui-growl { top:100px; z-index: 999999 !important;}
+.bluecolor{
+    background: #d9edf7 !important;
+}
+.griscolor{
+    background: #ffffff !important;
+}

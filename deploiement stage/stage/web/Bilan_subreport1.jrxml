@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bilan_subreport1" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="515" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isTitleNewPage="true" whenResourceMissingType="Empty" uuid="d86f178c-98b3-4369-af74-20a787061040">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="etabG" class="java.lang.String"/>
+	<parameter name="univG" class="java.lang.String"/>
+	<parameter name="cinch" class="java.lang.String"/>
+	<parameter name="Code" class="java.lang.String"/>
+	<parameter name="subreport1" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="gradeCh" class="java.lang.String"/>
+	<field name="nomCh" class="java.lang.String"/>
+	<field name="prenomCh" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cinCh" class="java.lang.String"/>
+	<field name="etaCodeEtab2" class="java.lang.Object"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="testgroupe">
+		<groupExpression><![CDATA[$F{nomCh}.equals( null )]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<staticText>
+					<reportElement uuid="f72450e7-7675-46dd-b5e1-b46b3c8392ee" x="0" y="3" width="66" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="5ee4009d-045d-4e07-a51d-3005be6bd43c" x="75" y="3" width="100" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nom et Prénom:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="af38129a-5bff-4dc2-9e5a-fb5d579572bc" x="187" y="3" width="58" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CIN:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="2c011234-0e0f-4de5-a113-bf33d81c6690" x="263" y="3" width="114" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Etablissement:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="8f156cf8-4427-418b-bf41-10c445f6ad68" x="437" y="3" width="78" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Université:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="22">
+				<textField>
+					<reportElement uuid="ad0f24c1-b559-4197-b545-a986ac1f5ec0" x="475" y="2" width="33" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$V{testgroupe_COUNT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="7d1858c9-80bc-4c21-8709-29459283f06b" x="436" y="2" width="77" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[total:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<columnHeader>
+		<band height="32">
+			<staticText>
+				<reportElement uuid="dacd9c87-b7d0-467a-bf41-63a7878f9d28" x="7" y="8" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[-Corps B :]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="43" splitType="Stretch">
+			<textField pattern="">
+				<reportElement uuid="69973312-7c95-4248-a671-56675546f3ee" x="2" y="8" width="64" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{gradeCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d1759e2b-c11f-42ca-b2bb-347d7a9374ea" x="75" y="9" width="100" height="34"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomCh}+" "+$F{prenomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8d21e1db-699e-4991-9584-872efbd4fc0e" x="187" y="8" width="76" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cinCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="36c9adfb-c4a0-4a17-b5d7-f890e6252420" x="263" y="0" width="270" height="28"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{etaCodeEtab2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

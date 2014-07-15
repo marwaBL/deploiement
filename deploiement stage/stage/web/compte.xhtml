@@ -1,0 +1,166 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  <f:view contentType="text/html">
+        <h:head>
+           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+               <link href="css/bootstrapgen.min.css" rel="stylesheet" />
+ 
+                     
+           
+        </h:head>
+<h:body>
+    
+<div class="navbar navbar-inverse"   style="width:1500px;text-align:center;margin:5 auto;">
+  
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <h:form >
+    
+          <p:commandLink id="loginLink" value="connexion" styleClass="nav navbar-nav navbar-right" style="color: #ffffff" action="#{compteController.connexion()}" />    
+          
+         
+      </h:form>
+  </div>
+</div>
+    <div class="well well-lg" style="width: 900px;margin:30px auto; ">
+   
+    <h:form class="form-horizontal" style="width:950px;margin:30px auto; " id="form" >
+  
+        <p:growl id="growll" showDetail="false" sticky="true" life="2000"   />  
+    <div class="form-group">
+      
+        <h:outputLabel for="email" value="Email: *"  styleClass="col-lg-2 control-label"  />  
+             
+      <div class="col-lg-10">
+       
+          <p:inputText id="email" required="true"   styleClass="form-control"  value="#{compteController.email}" requiredMessage="Email obligatoire" validatorMessage="Adresse email non valide" >  
+                <f:validator validatorId="controller.EmailValidator" />
+            </p:inputText>  
+      </div>
+    </div>
+       <div class="form-group">
+      
+        <h:outputLabel  value="Nom et Prénom: *"  styleClass="col-lg-2 control-label"  />  
+             
+       <div class="col-lg-10 ">
+          
+           <p:inputText id="nom" required="true"  requiredMessage="Nom obligatoire" value="#{compteController.nom}" styleClass="form-controltest"/> 
+               <p:watermark for="nom" value="Nom" />
+               <p:inputText id="prenom" required="true"  styleClass="form-controltest" value="#{compteController.prenom}" requiredMessage="Prénom obligatoire" />  
+            
+        
+           <p:watermark for="prenom" value="Prénom" />
+              </div>
+    </div>
+     
+    <div class="form-group">
+       
+      
+        <h:outputLabel for="inputPassword" value="Créez un mot de passe: *"  styleClass="col-lg-2 control-label"  />  
+             
+      <div class="col-lg-10">
+       
+          <p:password id="inputPassword" required="true" feedback="true" requiredMessage="Mot de passe obligatoire" promptLabel="Entrez un mot de passe" styleClass="form-controltest" style="width: 40%" value="#{compteController.pass1}"  >  
+              <p:ajax event="blur"/>
+          </p:password>
+        
+         </div>
+       
+    </div>
+          
+    <div class="form-group">
+      
+      
+        <h:outputLabel for="inputPassword2" value="Confirmez votre mot de passe: *"  styleClass="col-lg-2 control-label"  />  
+             
+      <div class="col-lg-10">
+       
+          <p:password id="inputPassword2" required="true" requiredMessage="Confirmation mot de passe obligatoire"  styleClass="form-controltest" style="width: 40%" value="#{compteController.pass2}"  >
+              <p:ajax event="blur" listener="#{compteController.confirmermotdepasse()}" update="growll" />
+          </p:password>
+        </div >
+    </div>  
+      
+
+    
+    <div class="form-group">
+      
+      <div class="col-lg-10">
+       <label class="col-lg-2 control-label"> </label>
+        <div class="col-lg-10">
+            <h:selectOneRadio id="labounite"    style=" margin-left:  20px"
+                           requiredMessage="Vous devez indiquer la structure de recherche " value="#{compteController.type}"
+                          required="true"      >  
+              <f:selectItem itemLabel="Unité" itemValue="Unité"  />  
+          <f:selectItem itemLabel="Laboratoire" itemValue="Laboratoire"  /> 
+             
+             <p:ajax update="denomination"  
+                     listener="#{compteController.findStructureByType()}" /> 
+        </h:selectOneRadio>
+        </div>      
+                 
+        </div>
+       
+    </div>
+    <div class="form-group">
+      <h:outputLabel for="denomination" value="Structure de Recherche: *"  styleClass="col-lg-2 control-label"  />  
+           
+      <div class="col-lg-10">
+       
+          <h:selectOneMenu id="denomination" style="width: 80%; "   styleClass="form-control"  required="true" label="Dénomination"   requiredMessage="Vous devez sélectionner une valeur pour la dénomination" value="#{compteController.structure}" >  
+               
+                 <f:selectItem itemLabel="Denomination" itemValue="Denomination" /> 
+                 <f:selectItems value="#{compteController.listlaboUnite}"  />  
+            </h:selectOneMenu> 
+        
+        
+      </div>
+    </div>
+        <div class="form-group">
+      <h:outputLabel for="typeRecherche" value=""  styleClass="col-lg-2 control-label"  />  
+           
+      <div class="col-lg-10">
+       
+          <h:selectOneMenu id="typeRecherche" style="width: 80%; "   styleClass="form-control"  required="true" label="type"  requiredMessage="Vous devez sélectionner une valeur pour le type" value="#{compteController.typeCh}" >  
+               
+                 <f:selectItem itemLabel="Etudiant en Master" itemValue="Etudiant en Master" /> 
+                  <f:selectItem itemLabel="Doctorant" itemValue="Doctorant" /> 
+                   <f:selectItem itemLabel="Docteur" itemValue="Docteur" /> 
+                    <f:selectItem itemLabel="Docteur Habilité" itemValue="Docteur Habilite" /> 
+                 
+            </h:selectOneMenu> 
+        
+        
+      </div>
+    </div>
+        
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+           <h:commandButton id="loginButton" value="Créer"  styleClass="btn btn-info" style="width: 100px; margin: 10px"
+                         action="#{compteController.ajouter()}"     /> 
+        
+          <h:commandButton id="loginButtonnnn" value="Annuler"  type="reset" styleClass="btn btn-default" style="width: 100px; " 
+               /> 
+       
+      </div>
+    </div>
+  
+</h:form>        
+    
+  </div>
+     
+ 
+</h:body>
+        </f:view>
+</html>

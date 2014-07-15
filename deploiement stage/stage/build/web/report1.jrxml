@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="895" pageHeight="842" columnWidth="855" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="093d3d0f-32d4-4615-8e00-5bf50163f27b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="593"/>
+	<parameter name="Dénomination du  L.R / U.R" class="java.lang.String"/>
+	<parameter name="Date de Naissance" class="java.lang.String"/>
+	<parameter name="Etablissement" class="java.lang.String"/>
+	<parameter name="EtablissementStructure" class="java.lang.String"/>
+	<parameter name="UniversiteStructure" class="java.lang.String"/>
+	<parameter name="DirecteurLabo" class="java.lang.String"/>
+	<parameter name="EtablissementInsc" class="java.lang.String"/>
+	<parameter name="directeurThese" class="java.lang.String"/>
+	<parameter name="Annee" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nomCh" class="java.lang.String"/>
+	<field name="prenomCh" class="java.lang.String"/>
+	<field name="dateNaisCh" class="java.util.Date"/>
+	<field name="lieuNaisCh" class="java.lang.String"/>
+	<field name="nomJFCh" class="java.lang.String"/>
+	<field name="cinCh" class="java.lang.String"/>
+	<field name="passCh" class="java.lang.String"/>
+	<field name="gradeCh" class="java.lang.String"/>
+	<field name="telCh" class="java.lang.String"/>
+	<field name="emailCh" class="java.lang.String"/>
+	<field name="sexeCh" class="java.lang.String"/>
+	<field name="sujetRechCh" class="java.lang.String"/>
+	<field name="avancement" class="java.lang.Integer"/>
+	<field name="annee" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="92">
+			<rectangle>
+				<reportElement uuid="10e0b1f6-c45f-4a78-89c1-1d65a66c7ce8" x="4" y="-13" width="851" height="91"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="2f9a5eb0-1288-4c5c-bbb4-1241ac7f8374" mode="Opaque" x="12" y="23" width="413" height="26" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Ministère de l’Ens. Supérieur et Rech. Scientifique]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2f9a5eb0-1288-4c5c-bbb4-1241ac7f8374" x="12" y="-6" width="193" height="26" forecolor="#000000"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[République Tunisienne]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="70d3a32f-394b-4a75-bbf9-fb771abab539" mode="Opaque" x="490" y="-13" width="365" height="52" forecolor="#000000" backcolor="#F5F2F5"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FICHE INDIVIDUELLE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cc318384-f62c-407f-b80c-2f7d645485b1" mode="Opaque" x="490" y="39" width="365" height="39" forecolor="#000000" backcolor="#F5F2F5"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ (Obligatoire pour les enseignants chercheurs (corps A et B)
+ et les doctorants)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="416d27cc-f6c8-452c-b4ab-0e1b4e977751" x="12" y="49" width="111" height="25"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Etablissement]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="68ca6bde-8060-4d1f-b383-8b5104890905" x="129" y="53" width="345" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{EtablissementStructure}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="70">
+			<rectangle>
+				<reportElement uuid="02cb5fe1-7561-4741-9f5d-6aca6ee0aa78" x="4" y="7" width="845" height="54"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="f0c75cb6-290c-4b3b-bdd8-69bde6b87ed7" x="12" y="13" width="809" height="44"/>
+				<textElement textAlignment="Justified">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[NB : - Tout chercheur, faisant partie d'un LR ou d'une UR, ne peut faire partie d’une autre structure de  recherche.
+         -Tout doctorant doit joindre obligatoirement une copie de son attestation d’inscription délivrée au titre de l’année universitaire ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="45">
+			<staticText>
+				<reportElement uuid="914d0f8b-fe65-4ce9-8237-ef5bd5661259" mode="Opaque" x="4" y="19" width="845" height="24" forecolor="#000000" backcolor="#F5F2F5"/>
+				<textElement textAlignment="Justified">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                          1- IDENTIFICATION DE L’ENSEIGNANT CHERCHEUR OU DU DOCTORANT]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="ae770955-c8c6-43ae-b6ab-9cf3db05eaa8" mode="Transparent" x="4" y="18" width="845" height="25" backcolor="#EFF2F5"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="555">
+			<textField>
+				<reportElement uuid="98fe8f5e-46f8-4f94-abda-abed3e4b69c0" x="239" y="24" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5c1dedec-56b5-4cc5-8ca8-f601f87d339f" x="45" y="24" width="62" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom et]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="85c4158e-9429-4cf0-be68-de0255dd0f3d" x="351" y="24" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{prenomCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c455dcf2-4d8b-4fd3-aca7-4ebfb9edf164" x="100" y="24" width="122" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prenom]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d92339e2-20cc-4bc3-a139-148807f45747" x="351" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{lieuNaisCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9f583943-947d-4080-9d03-da82fa1cb666" x="45" y="58" width="184" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date et Lieu de Naissance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="93f35c31-5f63-4386-bb84-2c102f136a75" x="515" y="24" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom de Jeune Fille]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3d3aa3d6-6a95-4265-af98-879c2939724d" x="239" y="97" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cinCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="98f43744-fb70-44ca-acf9-e36f21b3cd6a" x="45" y="93" width="118" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° CIN (tunisien)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="215a75e2-3bd0-45d1-a65a-8d11dd92f5fc" x="631" y="98" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{passCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3b28dc9f-910e-4264-8292-fc9ff1ddd0d0" x="515" y="97" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Passport (etranger)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b73d4be3-0375-4139-8ec7-8bddfbd129e7" x="239" y="132" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{gradeCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6ab23568-d820-4df3-8cf0-fa816f5e5c6f" x="45" y="127" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="67919d1f-5fb1-4f31-af7d-d71f62da0cba" x="239" y="167" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{telCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="05fa50d4-ff09-4f69-8ed7-6080e8e2f622" x="45" y="159" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Téléphone]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="341ab8f8-b076-409a-81ef-048ae277b75f" x="632" y="167" width="178" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{emailCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="76eec570-5707-4ad2-9392-bffb08e43461" x="515" y="167" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d1914ae5-3f77-4f2d-8cb6-872fc10d2aa2" x="632" y="60" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sexeCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="742dd846-e79c-439c-94c8-2181ca595a07" x="515" y="60" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="914d0f8b-fe65-4ce9-8237-ef5bd5661259" mode="Opaque" x="4" y="201" width="845" height="29" forecolor="#000000" backcolor="#F5F2F5"/>
+				<textElement textAlignment="Justified">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                        2- IDENTIFICATION DU LABORATOIRE / UNITE DE RECHERCHE (de rattachement)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="914d0f8b-fe65-4ce9-8237-ef5bd5661259" mode="Opaque" x="4" y="373" width="845" height="22" forecolor="#000000" backcolor="#F5F1F5"/>
+				<textElement textAlignment="Justified">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[                                                               3- CASE RESEVEE AU DOCTORANT]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="662c79de-69d0-4a1d-9bb0-d03b72c93e86" x="229" y="421" width="598" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sujetRechCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cbfc8402-0eaf-4eb7-9ce9-b4344b8f8b12" x="45" y="421" width="132" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Intitulé du Sujet]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="c2682672-4286-4b93-afb1-65ecb2b40393" x="239" y="459" width="59" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{avancement}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="261ac3b2-781e-48e9-9fa5-9bbedd3c0023" x="45" y="458" width="132" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[taux d'avancement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8b78903f-0072-491a-a464-1c3febe5d321" x="272" y="459" width="38" height="20"/>
+				<textElement/>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3215592f-fce9-48f4-8689-adf0425f0d2f" x="239" y="59" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dateNaisCh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1b1f7b03-48c9-4204-8b57-7561dcadef10" x="45" y="494" width="294" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Année universitaire de la première inscription]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a2ac5a3e-9be9-47fa-b6fb-addcd8e74d4f" x="251" y="256" width="559" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{Dénomination du  L.R / U.R}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="190324c4-a309-4fc6-b37b-b3afe4e39c7d" x="39" y="255" width="190" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dénomination du  L.R / U.R]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="613bd816-135f-4da5-a7db-f1926a89a40c" x="632" y="132" width="178" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{Etablissement}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2d3495a3-89c2-4ad9-a96b-ea0f4397b327" x="515" y="132" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etablissement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="285bb07c-9064-4fd4-96dd-16e991270130" x="39" y="291" width="190" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etablissement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="743bf8d6-3829-456d-845c-23193067aa67" x="515" y="292" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Université]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bd8312be-46ce-4023-8be6-8d9273c82430" x="39" y="331" width="190" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsable du L.R / UR]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="58b79681-ceb9-4ed2-a25d-c75d0820b05d" x="251" y="293" width="239" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{EtablissementStructure}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="49ca4133-0d5c-404c-894b-969854a2ca23" x="631" y="294" width="179" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{UniversiteStructure}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fa93354f-086c-4e78-82c5-d3aa5303b02c" x="251" y="332" width="239" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{DirecteurLabo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="d32444b5-60f5-4c76-94dd-6dbf691d084e" x="427" y="527" width="232" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{EtablissementInsc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5428d977-8144-4192-9cc7-bb9d31f120bd" x="45" y="526" width="368" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etablissement universitaire (où est effectuée l’inscription)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3378063b-c556-4831-a393-31d9e4eb5455" x="339" y="457" width="243" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom du directeur de thèse]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c804630d-78a3-41da-be6c-8da40ba68f94" x="595" y="457" width="232" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{directeurThese}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1a620eb7-9099-4e1c-8f78-5fcaa2ae8a78" x="351" y="494" width="74" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{Annee}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="c5ef51e6-53ae-4ca8-bb60-7c52a7ffed05" mode="Transparent" x="4" y="201" width="845" height="26"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="8de83120-6a1f-4d26-9cd5-17a470bfee1e" mode="Transparent" x="4" y="371" width="845" height="25"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="f285658b-90c9-46a9-b74d-b926196ca335" mode="Transparent" x="4" y="227" width="845" height="144"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="e4d4f60e-dd8c-4419-82f7-0a5625c22f6b" mode="Transparent" x="4" y="396" width="845" height="153"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="be35d4eb-1911-433f-bfe4-b76ef46519ac" mode="Transparent" x="4" y="-2" width="845" height="203"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="ce3b34e2-88e5-4ee8-9c62-f79b2cc13e5f" x="632" y="24" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomJFCh}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39">
+			<staticText>
+				<reportElement uuid="eb34845a-8197-4cfc-9d68-8bd2ec64fa02" x="4" y="4" width="347" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature de l’enseignant chercheur ou du doctorant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="932ae2ff-d17f-4361-a23d-485698312447" x="474" y="4" width="285" height="20"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature du chef du  L.R ou de l'UR]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement uuid="985d1468-1e16-4a50-ad80-7101c4a9f4b9" x="77" y="19" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement uuid="abfac552-1e2f-4db4-896b-48e2745d6a95" x="588" y="19" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

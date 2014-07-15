@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5806def-ff8d-47ca-be65-7b6c10100c9b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="ecrireList" class="java.util.List"/>
+	<field name="journal" class="java.lang.String"/>
+	<field name="titre" class="java.lang.String"/>
+	<field name="mois" class="java.lang.Integer"/>
+	<field name="annee" class="java.lang.Integer"/>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<textField pattern="yyyy">
+				<reportElement uuid="6b7e8e56-bf4f-4062-89e1-3383512979d2" x="123" y="14" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1b0eff7e-596d-4088-8440-b7be936e2c9a" x="11" y="14" width="112" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Publications parues en ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a405f1bf-000f-4eff-861a-c7f875db0867" x="147" y="14" width="203" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[dans des revues scientifiques indexées]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement uuid="489afd7c-f68f-4bc7-8823-496c6f9ed3b3" x="0" y="10" width="268" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{ecrireList}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="caa70861-913a-4d9d-bc72-8bacb152f7ee" x="268" y="10" width="287" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["<< "+ $F{titre}+">>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d99cc1c6-8f52-471a-8835-f7f7af47a31d" x="0" y="30" width="145" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{journal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="65bada9b-a79a-48f5-8d37-59ea4842d754" x="145" y="30" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{mois}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d3cf21c3-51ef-4e45-8903-8850c16d04c1" x="192" y="30" width="76" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{annee}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

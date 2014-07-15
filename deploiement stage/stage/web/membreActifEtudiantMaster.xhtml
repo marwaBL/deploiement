@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+                <link href="css/autocomplete.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+                
+ 
+                     
+           
+        </h:head>
+
+        <h:body>
+ 
+           
+            <h:form id="form1">
+               
+            <ui:include src="header.xhtml"  />
+              
+            </h:form>
+                
+
+              
+               
+                 
+    
+ 
+    
+              
+           <h:form id="form2" style="width:1500px;margin-left: 1%;margin-top: 30px;  ">
+                
+                 
+               <p:dataTable var="car" value="#{membreController.membreActifsMaster}" widgetVar="carsTable" paginatorAlwaysVisible="false"
+                            paginator="true" rows="5"  emptyMessage="Liste vide"                   
+        paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"  
+        rowsPerPageTemplate="5,10,15"  styleClass="borderless"  paginatorPosition="top"
+                 >
+ 
+        <f:facet name="header">
+            
+                 <p:outputLabel   value="Liste des Membres actifs Etudiant en Master " />
+               
+          
+        </f:facet>
+  <p:column width="10" >
+                       <p:commandButton id="selectButton"  update="@form"
+                                         oncomplete="carDialog.show()" icon="ui-icon-search" title="Détail"  >
+                            <f:setPropertyActionListener value="#{car}"
+                                                         target="#{membreController.chselectedm}" />
+                        </p:commandButton>
+                    </p:column>
+                   <p:column filterBy="#{car.nomCh} #{car.prenomCh}" width="40" headerText="Nom et prénom" filterStyleClass="form-control" filterStyle="width: 100%" filterMatchMode="contains">
+                       <h:outputText value="#{car.nomCh} #{car.prenomCh}" />
+        </p:column>
+ 
+                  
+ 
+      
+                   <p:column filterBy="#{car.annee}" headerText="Année de l'inscription"  width="10"  filterMatchMode="exact" filterStyleClass="form-control" filterStyle="width: 50%">
+           <f:facet name="filter">
+                <p:spinner  styleClass="year-spinner">
+                    <f:converter converterId="javax.faces.Integer" />
+                </p:spinner>
+            </f:facet>
+                       <h:inputText value="#{car.annee}"   style="width: 65px" styleClass="form-controltest"  />
+        </p:column>
+                   <p:column filterBy="#{car.sujetRechCh}" headerText="Sujet"  filterMatchMode="contains"  width="1000" filterStyleClass="form-control" filterStyle="width: 100%">
+           
+                       <h:inputText value="#{car.sujetRechCh}" style="width: 100%"  styleClass="form-controltest"  />
+        </p:column>
+                   <p:column filterBy="#{car.avancement}" headerText="Avanc(%)" filterStyleClass="form-control" filterStyle="width: 80%" width="20" filterMatchMode="exact">
+           <f:facet name="filter">
+                <p:spinner  styleClass="year-spinner">
+                    <f:converter converterId="javax.faces.Integer" />
+                </p:spinner>
+            </f:facet>
+                       <h:inputText value="#{car.avancement}" style="width: 45px"  styleClass="form-controltest"  />
+        </p:column>
+                   <p:column filterBy="#{car.codeEtab.libEtab}" headerText="Etablissement" filterStyleClass="form-control" filterStyle="width: 80%" width="40" filterMatchMode="exact" >
+           
+                       <h:outputText value="#{car.codeEtab.libEtab}"    />
+        </p:column>
+                   <p:column filterBy="#{car.cheIdCh.nomCh} #{car.cheIdCh.prenomCh}"  headerText="Nom et prénom de l'encadreur" width="20" filterMatchMode="contains" filterStyleClass="form-control" filterStyle="width: 80%" >
+           
+            <h:outputText value="#{car.cheIdCh.nomCh} #{car.cheIdCh.prenomCh}"     />
+        </p:column>
+                   
+  <p:column >
+                        <p:commandButton id="SaveButton"  update="@form"   
+                                         action="#{membreController.miseajour()}"
+                          icon="ui-icon-check" title="Valider">
+                            <f:setPropertyActionListener value="#{car}" 
+                                                         target="#{membreController.chselectedm}" />
+                        </p:commandButton>
+                    </p:column>
+        
+    </p:dataTable>
+                 
+                
+               <p:dialog header="Detail Chercheur" widgetVar="carDialog" resizable="false"
+                    id="carDlg" showEffect="fade" hideEffect="fade" modal="true">
+
+                    <h:panelGrid id="display" columns="2" cellpadding="4"
+                        style="margin:0 auto;">
+
+                        <p:graphicImage value="#{membreController.imagem}" width="80" height="80"/> 
+                        <h:panelGrid id="display3" columns="1" cellpadding="4">
+                        <h:outputText id="modelNo" value="#{membreController.chselectedm.nomCh} #{membreController.chselectedb.prenomCh}"  /> 
+                        <h:outputText id="modeltype" value="#{membreController.chselectedm.typeCh}"  /> 
+                        </h:panelGrid>
+                        <h:outputText id="CIN" value="CIN" />  
+                  <h:outputText  value="#{membreController.chselectedm.cinCh} " styleClass="col-lg-2 control-label" />  
+                  <h:outputText id="tel" value="Tel" />  
+                  <h:outputText  value="#{membreController.chselectedm.telCh} " styleClass="col-lg-2 control-label" />  
+                  
+
+
+                    </h:panelGrid>
+
+                </p:dialog>
+            </h:form>
+            
+             
+
+        </h:body>
+
+    </f:view>
+</html>
+

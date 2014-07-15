@@ -1,0 +1,111 @@
+body {
+  height:100%;
+  border: none;
+  background: #ffffff;
+  /*background: #eee;*/
+}
+
+h1 {
+  font-family: Arial,sans-serif;
+  font-size:50px;
+  color:#DDCCEE;
+}
+h2 {
+  font-family: Arial,sans-serif;
+  font-size:35px;
+  color:#DDCCEE;
+}
+.lead {
+	color:#DDCCEE;
+}
+
+
+/* Custom container */
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+  min-height:100%;
+  background-color:#110022;
+  color:#eee;
+  overflow:hidden;
+}
+
+.container-full a {
+  color:#efefef;
+  text-decoration:none;
+}
+
+.v-center {
+  margin-top:7%;
+}
+ /** chorme and safari **/
+::-webkit-input-placeholder {
+	color: #DDCCEE !important;
+	font-weight: normal !important;
+}
+ 
+/** firefox **/
+:-moz-placeholder {
+	color: #DDCCEE !important;
+	font-weight: normal !important;
+}
+ 
+/** IE **/
+.ui-watermark {
+	color: #DDCCEE !important ;
+	/*font-weight: normal !important;*/
+} 
+.container-fulltest {
+  margin: 0 auto;
+ 
+ 
+  background-color:#110022;
+  color:#eee;
+  overflow:hidden;
+}
+ .ui-north .ui-layout-unit-content  {
+   /* background-image: url("footer2.png" ) ;
+    background-size: cover;*/
+  /* background: #666666;*/
+   /* overflow: hidden !important;
+    z-index:40 ;*/
+    color: #ffffff;
+    /* font: 13px Arial, Helvetica, cursive;*/
+      /* position: relative;*/
+    border-color: #ffffff;
+        overflow:visible !important;
+    }
+     .ui-north, .ui-north .ui-layout, .ui-north .ui-layout-bd, .ui-north .ui-layout-unit {
+    /* background-image: url("footer2.png" ) ;
+     background-size: cover;*/
+   /* background: #666666;*/
+      padding: 0;
+  /* overflow: hidden !important;
+   z-index:40 ;*/
+  z-index:20 !important;
+        overflow:visible !important;
+     border: none;
+      border-color: #ffffff;
+       /*position: relative;*/
+      
+    
+    }
+    
+    .ui-center .ui-layout-unit-content  {
+   /* background-image: url("corps22.png" ) ;
+    background-size: cover;*/
+      /*background: #ffffff;*/
+      border: #ffffff;
+  /* background: #f0f8ff*/
+ /* background: #fafaee*/
+    
+    }
+      .ui-center, .ui-center .ui-layout, .ui-center .ui-layout-bd, .ui-center .ui-layout-unit {
+   /*background-image: url("corps22.png" ) ;
+     background-size: cover;*/
+       /* background: #ffffff;*/
+      padding: 0;
+    border: #ffffff;
+    border: none;
+  
+    }

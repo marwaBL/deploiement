@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Bilan_subreport3" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="515" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="20bf88f8-8f6b-4cc1-bb54-ff2d2129145b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nomCh" class="java.lang.String"/>
+	<field name="prenomCh" class="java.lang.String"/>
+	<field name="cinCh" class="java.lang.String"/>
+	<field name="annee" class="java.lang.Integer"/>
+	<field name="cheIdCh" class="java.lang.Object"/>
+	<field name="codeEtab" class="java.lang.Object"/>
+	<group name="doctorantGroupe">
+		<groupHeader>
+			<band height="32">
+				<staticText>
+					<reportElement uuid="1c1d025d-07c0-4149-a9ae-b38fafb08622" x="1" y="0" width="100" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nom et prénom]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="63f2f840-4bc5-4ae7-9fae-15e82c234c05" x="184" y="0" width="66" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[CIN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="ffcf75d5-50e1-4791-84bb-bb6d9c66f86e" x="257" y="0" width="100" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Etablissement]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="df18af25-aa86-4c5c-824f-a1698e36c4c0" x="335" y="0" width="91" height="31"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Année de la première inscription]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="659c5b56-e523-4324-88ab-7f0a5eb18e41" x="427" y="0" width="88" height="31"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nom et prénom de l’encadreur
+]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<columnHeader>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="20fdfdb0-9c7b-44a7-ae97-b306464729ee" x="10" y="10" width="470" height="22"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[-Doctorants (préparant une thèse de doctorat es-sciences) :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="940a06d7-5441-4dc2-87f0-6e3b5a8aa5e5" x="26" y="32" width="454" height="29"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Tout  doctorant  doit fournir obligatoirement une attestation d’inscription au titre de l’année universitaire ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement uuid="a1b1142e-1b96-406c-aa5d-aa823bf5f049" x="1" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3929b75a-5921-40fa-b087-ba5e80b20e94" x="74" y="1" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{prenomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="088f3ddf-d3ad-463e-959f-ef95ccf2aa73" x="184" y="1" width="66" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{cinCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3aa5dc17-930f-484d-8ba6-1b38b314b717" x="335" y="1" width="74" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{annee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d4876282-a447-4d5d-a1e2-c9072e226235" x="427" y="1" width="107" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{cheIdCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="62b00de3-b941-4674-a676-f9e9d508a8c2" x="257" y="1" width="78" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" "+$F{codeEtab}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

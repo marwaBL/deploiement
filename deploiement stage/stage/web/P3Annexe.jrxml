@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="80f348ff-86d8-439e-a6ac-d0fe0a522d10">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nomCh" class="java.lang.String"/>
+	<field name="prenomCh" class="java.lang.String"/>
+	<field name="sujetRechCh" class="java.lang.String"/>
+	<field name="annee" class="java.lang.Integer"/>
+	<field name="codeEtab" class="java.lang.Object"/>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="cc721f8a-5493-4615-ad51-4bdd23541a86" x="17" y="20" width="176" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Mastères de recherche soutenus en]]></text>
+			</staticText>
+			<textField pattern="yyyy">
+				<reportElement uuid="63a787fb-8925-4692-99d7-fdb3d4e2a996" x="193" y="20" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ea08d27a-f5c3-4490-9565-5e6e9d577152" x="0" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6c541ebc-983f-44bf-832f-bcb34ad5a8d5" x="100" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{prenomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3ca792da-29bf-48da-8931-f29dd129c022" x="174" y="10" width="381" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[", "+$F{sujetRechCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d54ecd2e-35fa-4dd2-8927-ec755c7c4947" x="0" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{codeEtab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ca82f50-7c08-4c6d-969b-5fe3d71e1fee" x="100" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA["," +$F{annee}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

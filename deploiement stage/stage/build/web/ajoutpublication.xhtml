@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <f:view contentType="text/html">
+        <h:head>
+       <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+                <link href="css/autocomplete.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+                
+    </h:head>
+
+        <h:body  >
+
+            
+                <!--  <ui:include src="header.xhtml" />-->
+            
+
+               
+                     <ui:include src="header.xhtml" />
+             
+
+   
+
+         <div class="well well-lg" style="width: 900px;margin:20px auto; background: #ffffff ">        
+   
+    <h:form class="form-horizontal" style="width:900px;margin:20px auto; " id="form" >
+  
+        <p:growl id="growll" showDetail="false" sticky="true" life="2000"   />  
+        
+    <div class="form-group">
+      
+        <h:outputLabel for="titre" value="Titre: *"  styleClass="col-lg-2 control-label"  />  
+              
+      <div class="col-lg-10">
+       
+          <p:inputText id="titre" required="true"  value="#{addpublicationController.titre}" styleClass="form-controltest"   requiredMessage="titre obligatoire"  style="width: 80%;margin: 5px;">  
+               
+            </p:inputText>  
+           <p:commandButton id="UploadButton" icon="ui-icon-arrowthickstop-1-s"  title="Télécharger" 
+                             /> 
+           
+      </div>
+    </div>
+      <p:overlayPanel id="chartPanel" for="UploadButton" hideEffect="fade"  style="width: 650px; "  >  
+             
+          <p:fileUpload  mode="advanced" dragDropSupport="false"  styleClass="well well-lg"
+                     
+                  sizeLimit="100000000"  allowTypes="/(\.|\/)(pdf)$/"  invalidSizeMessage="The maximum file size allowed is 10 Megabytes !"
+                 invalidFileMessage="You are allowed to upload only documents !" />
+         
+              </p:overlayPanel>
+        
+       <div class="form-group">
+        <ui:repeat  value="#{addpublicationController.testauteur}" var="aut" > 
+        <h:outputLabel  value="Auteur(s): *"  styleClass="col-lg-2 control-label"  />  
+             
+       <div class="col-lg-10 ">
+                      
+                             
+  
+           <p:autoComplete id="nom"  value="#{aut.nomAut}" required="true" completeMethod="#{addpublicationController.completeNomAuteur}" requiredMessage="Nom Auteur obligatoire"  styleClass="ui-autocomplete"/> 
+               <p:watermark for="nom" value="Nom" />
+               <p:autoComplete id="prenom" value="#{aut.prenomAut}" required="true"  styleClass="ui-autocomplete" requiredMessage="Prénom Auteur obligatoire" completeMethod="#{addpublicationController.completePrenomAuteur}" />  
+            
+        
+           <p:watermark for="prenom" value="Prénom" />
+          
+            
+           <p:commandButton id="PlusButton" icon="ui-icon-plus"  title="adder"   style="margin: 5px;" update=":form" action="#{addpublicationController.addPanelAuteur()}"
+                             /> 
+           <p:commandButton id="MoinsButton" icon="ui-icon-minus"  title="Supprimer"  update=":form" action="#{addpublicationController.removePanelAuteur()}"
+                             /> 
+              </div>
+        </ui:repeat>
+    </div>
+     <div class="form-group">
+  <h:outputLabel value="Date" styleClass="col-lg-2 control-label" />
+      <div class="col-lg-10 ">       
+          <p:inputMask  id="basicPojo"  label="mois"   mask="99"  value="#{addpublicationController.mois}"  styleClass="form-controltest"  style="width: 20%" >
+             
+          </p:inputMask>
+          
+      
+   <p:watermark for="basicPojo" value="mois" />
+   <p:inputMask  id="annee"  label="annee"   mask="9999" value="#{addpublicationController.annee}" styleClass="form-controltest"  style="width: 20%"/>
+        <p:watermark for="annee" value="annee" />
+      </div>
+     </div>
+     <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Type : </label>
+      <div class="col-lg-10">
+       
+          <h:selectOneMenu id="type"  style="width: 80%; "   styleClass="form-control"  value="#{addpublicationController.type}">  
+                 <f:selectItem itemLabel="" itemValue="" /> 
+                  <f:selectItem itemLabel="Article" itemValue="Article" /> 
+                 <f:selectItem itemLabel="Rapport" itemValue="Rapport" /> 
+                 <f:selectItem itemLabel="Doc" itemValue="Doc" /> 
+                  <f:selectItem itemLabel="Divers" itemValue="Divers" /> 
+                 <f:selectItem itemLabel="Collection" itemValue="Collection" /> 
+                 <f:selectItem itemLabel="Livre" itemValue="Livre" /> 
+                 <f:selectItem itemLabel="Conference" itemValue="Conference" /> 
+                 <f:selectItem itemLabel="Inbook" itemValue="Inbook" /> 
+                 <f:selectItem itemLabel="Brochure" itemValue="Brochure" /> 
+                
+                 <p:ajax update="paneltype" 
+                          />
+                
+              
+            </h:selectOneMenu>
+           
+      
+      </div>
+    </div>
+      
+    <p:outputPanel id="paneltype" >
+     
+         <div class="form-group">
+     
+      
+             <p:outputPanel id="panelearticle" rendered="#{addpublicationController.displayPanelArticle()}">
+              <h:outputLabel value="Journal" styleClass="col-lg-2 control-label" />
+             <div class="col-lg-10" >
+             
+                 <p:inputText  id="journal"  styleClass="form-controltest"  value="#{addpublicationController.journal}" label="titre" style="width: 80%" ></p:inputText>
+             </div>
+              <h:outputLabel value="Volume" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+                 
+                 <p:inputText  id="volume"  value="#{addpublicationController.volumeA}"  label="titre" styleClass="form-controltest" style="width: 34% ;margin-top: 20px;" ></p:inputText>
+            
+                   <h:outputLabel value="Nombre" style="margin: 10px;"  />
+            
+             
+                   <p:inputText  id="nombre"   label="titre" value="#{addpublicationController.nombreA}" styleClass="form-controltest" style="width: 35% ;" ></p:inputText>
+             </div>
+                     <h:outputLabel value="Pages" styleClass="col-lg-2 control-label" style="margin-top: 15px;"  />
+             <div class="col-lg-10" >
+            
+                 <p:inputText  id="paged"  value="#{addpublicationController.pagedebA}"  label="titre" styleClass="form-controltest" style="width: 17% ;margin-top: 20px;"  ></p:inputText>
+              <p:watermark for="paged" value="De" />
+             
+              <p:inputText  id="pagef"  value="#{addpublicationController.pagefinA}" label="titre" styleClass="form-controltest" style="width: 17% ;"  ></p:inputText>
+              <p:watermark for="pagef" value="à" />
+      </div>
+        </p:outputPanel>
+     
+                <p:outputPanel id="panelebrochure" rendered="#{addpublicationController.displayPanelBrochure()}" >
+            <h:outputLabel value="Adresse" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+         
+                 <p:inputText  id="adresse" value="#{addpublicationController.adresseB}" styleClass="form-controltest" style="width: 80%;margin-top: 20px;" label="titre"  ></p:inputText>
+             </div>
+            <h:outputLabel value="Comment publier :" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+                 <p:inputText  id="publier"  value="#{addpublicationController.howpubB}" label="titre"  styleClass="form-controltest" style="width: 80%;margin-top: 20px;" ></p:inputText>
+             </div>
+    
+        </p:outputPanel>
+             <p:outputPanel id="paneleInbook" rendered="#{addpublicationController.displayPanelInbook()}">
+             <h:outputLabel value="Edition :" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+                 <p:inputText  id="edition"   value="#{addpublicationController.editionI}" label="titre" styleClass="form-controltest" style="width: 80%;margin-top: 20px;" ></p:inputText>
+             </div>
+             <h:outputLabel value="Adresse" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+             
+                 <p:inputText  id="adresse1"  value="#{addpublicationController.adresseI}"  label="titre" styleClass="form-controltest" style="width: 80%;margin-top: 20px;" ></p:inputText>
+             </div>
+             <h:outputLabel value="Série" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+            
+             <p:inputText  id="serie"   value="#{addpublicationController.serieI}"  label="titre" styleClass="form-controltest" style="width: 34%;margin-top: 20px;" ></p:inputText>
+             <p:outputLabel value="Volume" style="margin: 10px;" ></p:outputLabel>
+             <p:inputText  id="volume1" value="#{addpublicationController.volumeI}"  label="titre" styleClass="form-controltest" style="width: 35%;margin-top: 20px;" ></p:inputText>
+            
+             </div>
+        </p:outputPanel>
+             <p:outputPanel id="paneleInbook2" rendered="#{addpublicationController.displayPanelInbook()}">
+                  <p:outputLabel value="Chapitre" styleClass="col-lg-2 control-label" style="margin-top: 15px;" ></p:outputLabel>
+              <div class="col-lg-10" >
+                  <p:inputText  id="chapitre"  value="#{addpublicationController.chapitreI}" label="titre"  styleClass="form-controltest" style="width: 80%;margin-top: 20px;"  ></p:inputText>
+              </div>
+               <h:outputLabel value="Pages :" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+            
+                 <p:inputText  id="pagedb"  value="#{addpublicationController.pagedebI}" label="titre" styleClass="form-controltest" style="width: 17%;margin-top: 20px;"  ></p:inputText>
+              <p:watermark for="pagedb" value="De" />
+             
+              <p:inputText  id="pagefb"  value="#{addpublicationController.pagefinI}" label="titre" styleClass="form-controltest" style="width: 17%;margin-top: 20px;"   ></p:inputText>
+              <p:watermark for="pagefb" value="à" />
+             </div>
+               
+               
+        </p:outputPanel> 
+             <p:outputPanel id="panelconference" rendered="#{addpublicationController.displayPanelConference()}">
+              <h:outputLabel value="Edition:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                  <p:inputText  id="edition1"  value="#{addpublicationController.editionC}"  label="titre" style="width: 80%;margin-top: 20px;"  styleClass="form-controltest"></p:inputText>
+              </div>
+               <p:outputLabel value="Adresse:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" ></p:outputLabel>
+              <div class="col-lg-10" >
+              
+                  <p:inputText  id="adresse2"  value="#{addpublicationController.adresseC}"  label="titre" style="width: 80%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              </div>
+                <p:outputLabel value="Organisation:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" ></p:outputLabel>
+              <div class="col-lg-10" >
+            
+                  <p:inputText  id="organisation"  value="#{addpublicationController.organisationC}"  label="titre" style="width: 80%;margin-top: 20px;" styleClass="form-controltest"></p:inputText>
+              </div>
+                 <p:outputLabel value="Titre du livre:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" ></p:outputLabel>
+              <div class="col-lg-10" >
+                  <p:inputText  id="titrelivre" value="#{addpublicationController.booktitleC}"  label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest"></p:inputText>
+              </div>
+      
+        </p:outputPanel>
+             <p:outputPanel id="panelconference2" rendered="#{addpublicationController.displayPanelConference()}">
+                 <h:outputLabel value="Pages:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" > 
+                  <p:inputText  id="pagedc"  value="#{addpublicationController.pagedebC}"  label="titre" style="width: 17%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              <p:watermark for="pagedc" value="De" />
+             
+              <p:inputText  id="pagefc"  value="#{addpublicationController.pagefinC}" label="titre" style="width: 17%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              <p:watermark for="pagefc" value="à" />
+              </div>  
+             
+        </p:outputPanel> 
+             <p:outputPanel id="panelelivre" rendered="#{addpublicationController.displayPanelLivre()}">
+             <h:outputLabel value="Edition:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+            
+                  <p:inputText  id="edition2" value="#{addpublicationController.editionL}"  label="titre" style="width: 80%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              </div>
+             <h:outputLabel value="Adresse:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+            
+                  <p:inputText  id="adresse3"  value="#{addpublicationController.adresseL}"  label="titre" style="width: 80%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              </div>
+             <h:outputLabel value="Série:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+            
+                  <p:inputText  id="serie1"  value="#{addpublicationController.serieL}"  label="titre" style="width: 34%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+             <p:outputLabel value="Volume" style="margin: 10px;"></p:outputLabel>
+             <p:inputText  id="volume3"  value="#{addpublicationController.volumeL}" label="titre"  style="width: 34%;margin-top: 20px;" styleClass="form-controltest"></p:inputText>
+              </div>
+      
+        </p:outputPanel>
+             <p:outputPanel id="panelcollection" rendered="#{addpublicationController.displayPanelCollection()}">
+            <h:outputLabel value="Edition:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                 
+                  <p:inputText  id="edition4" value="#{addpublicationController.editionCol}"  label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              </div>
+            <h:outputLabel value="Adresse:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+           
+                  <p:inputText  id="adresse4" value="#{addpublicationController.adresseCol}"   label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              </div>
+            <h:outputLabel value="Titre du livre:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                  <p:inputText  id="titrelivre1" value="#{addpublicationController.booktitleCol}"  label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest"  ></p:inputText>
+              </div>
+      
+        </p:outputPanel>
+             <p:outputPanel id="panelcollection2" rendered="#{addpublicationController.displayPanelCollection()}" >
+                 
+             <h:outputLabel value="Pages:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" > 
+                  <p:inputText  id="pagedcol" value="#{addpublicationController.pagedebCol}"   label="titre" style="width: 17%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              <p:watermark for="pagedcol" value="De" />
+             
+              <p:inputText  id="pagefcol"  value="#{addpublicationController.pagefinCol}"  label="titre" style="width: 17%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              <p:watermark for="pagefcol" value="à" />
+              </div>  
+               
+             
+        </p:outputPanel> 
+            <p:outputPanel id="paneldivers" rendered="#{addpublicationController.displayPanelDivers()}">
+              <h:outputLabel value="Comment publier :" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+             <div class="col-lg-10" >
+                 <p:inputText  id="publier2"  value="#{addpublicationController.howpubDiv}" label="titre"  styleClass="form-controltest" style="width: 80%;margin-top: 20px;" ></p:inputText>
+             </div>
+    
+        </p:outputPanel> 
+            <p:outputPanel id="paneldoc" rendered="#{addpublicationController.displayPanelDoc()}">
+             <h:outputLabel value="Edition:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                 
+                  <p:inputText  id="edition5" value="#{addpublicationController.editionD}"  label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              </div>
+            <h:outputLabel value="Adresse:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+           
+                  <p:inputText  id="adresse5" value="#{addpublicationController.adresseD}"   label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest" ></p:inputText>
+              </div>
+            <h:outputLabel value="Organisation:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                  <p:inputText  id="organisation2"  value="#{addpublicationController.organisationD}" label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest"  ></p:inputText>
+              </div>
+        </p:outputPanel> 
+             <p:outputPanel id="panelrapport" rendered="#{addpublicationController.displayPanelRapport()}">
+             <h:outputLabel value="Etablissement:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                 
+                  <p:inputText  id="etab" value="#{addpublicationController.etablissementR}" style="width: 80%;margin-top: 20px;" styleClass="form-controltest" label="titre" ></p:inputText>
+              </div>
+             <h:outputLabel value="Adresse:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                 
+                  <p:inputText  id="adresse6" value="#{addpublicationController.adresseR}"   label="titre"  style="width: 80%;margin-top: 20px;" styleClass="form-controltest"></p:inputText>
+              </div>
+             <h:outputLabel value="Type:" styleClass="col-lg-2 control-label" style="margin-top: 15px;" />
+              <div class="col-lg-10" >
+                 
+                  <h:selectOneMenu id="typeRapport" value="#{addpublicationController.typeR}" style="margin-top: 20px;" styleClass="form-control" requiredMessage="Vous devez indiquer le type " required="true"   >  
+                 <f:selectItem itemLabel="Master" itemValue="Master" /> 
+                  <f:selectItem itemLabel="Doctorat" itemValue="Doctorat" /> 
+                 <f:selectItem itemLabel="Institut" itemValue="Institut" /> 
+                
+             </h:selectOneMenu>
+              </div>
+        </p:outputPanel> 
+      
+           
+       
+           <p:outputPanel id="panelediteurgg" rendered="#{addpublicationController.displayPanelEditeur()}">
+        <h:outputLabel  value="Editeur:"  styleClass="col-lg-2 control-label" style="margin-top: 15px;"  />  
+         <div class="col-lg-10 "  style="margin-top: 15px;">
+        <p:autoComplete id="nomed" required="true"  requiredMessage="Nom Editeur obligatoire"  styleClass="ui-autocomplete"  value="#{addpublicationController.nomed}" completeMethod="#{addpublicationController.completeNomEditeur}"  /> 
+               <p:watermark for="nomed" value="Nom" />
+               <p:autoComplete id="prenomed" required="true"  styleClass="ui-autocomplete" requiredMessage="Prénom Editeur obligatoire" value="#{addpublicationController.prenomed}" completeMethod="#{addpublicationController.completePrenomEditeur}"  />  
+            
+        
+           <p:watermark for="prenomed" value="Prénom" />
+           </div>
+           </p:outputPanel>
+       
+        </div>
+    </p:outputPanel>  
+       <p:outputPanel  id="panelchampsupp">
+           <ui:repeat  value="#{addpublicationController.champssup}" var="supp" >  
+        <div class="form-group">
+      
+           
+       <div class="col-lg-10 ">
+             <p:outputLabel value="#{supp}" styleClass="col-lg-2 control-label" style="margin-top: 15px;"></p:outputLabel>
+              <p:inputText  id="chsup"    label="titre"  style="width: 80%;margin-top: 20px;"  styleClass="form-controltest"></p:inputText>
+  
+       </div>
+        </div>
+            
+      </ui:repeat>
+      </p:outputPanel>
+      <p:outputPanel  id="panelchampsupp2"> 
+          <ui:repeat  value="#{addpublicationController.champssup1}" var="supp" >  
+      <div class="form-group">
+      
+           
+       <div class="col-lg-10 ">
+             <p:outputLabel value="#{supp}" styleClass="col-lg-2 control-label"  style="margin-top: 15px;"></p:outputLabel>
+              <p:inputText  id="chsup"    label="titre"  style="width: 80%;margin-top: 20px;"  styleClass="form-controltest"></p:inputText>
+  
+       </div>
+      </div>
+      </ui:repeat>
+      </p:outputPanel>
+         <div class="form-group">
+      <p:outputPanel  id="panelchampsupp3">
+          <ui:repeat  value="#{addpublicationController.champssup2}" var="supp" >  
+     
+      
+           
+       <div class="col-lg-10 ">
+          
+             <p:outputLabel value="#{supp}" styleClass="col-lg-2 control-label" style="margin-top: 15px;" ></p:outputLabel>
+              <p:inputText  id="chsup"    label="titre"  style="width: 80%;margin-top: 20px;"  styleClass="form-controltest"></p:inputText>
+  
+              
+       </div>
+     
+      </ui:repeat>
+      </p:outputPanel>
+         </div>
+      <p:commandButton id="pluschamps"  onclick="dlg.show()"     value="..."  /> 
+       <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+          
+          <h:commandButton id="AnnulerButtonnnn" value="Annuler"  type="reset" styleClass="btn btn-default" style="width: 100px; " 
+               /> 
+          <h:commandButton id="AjoutButton" value="Créer"  styleClass="btn btn-info" style="width: 100px; margin: 10px" action="#{addpublicationController.insert()}" 
+                            /> 
+        
+      </div>
+    </div>
+  
+                   
+     
+   
+  
+</h:form>        
+    
+   <p:dialog  header="Champs supplementaires" widgetVar="dlg" style=" margin-top: 270px;"   appendToBody="true">  
+  <h:form id="dlgForm">
+          
+             
+              <h:selectManyCheckbox id="pageDirection" layout="grid"  value="#{addpublicationController.champssup}" >  
+            <f:selectItem itemLabel="journal" itemValue="journal"/>  
+            <f:selectItem itemLabel="clé" itemValue="clé"/>
+            <f:selectItem itemLabel="serie" itemValue="serie"/>
+            <f:selectItem itemLabel="note" itemValue="note"/>
+            </h:selectManyCheckbox > 
+            <h:selectManyCheckbox id="pageDirection2" layout="grid"  value="#{addpublicationController.champssup1}"> 
+            <f:selectItem itemLabel="volume" itemValue="volume"/>
+            <f:selectItem itemLabel="nombre" itemValue="nombre"/>
+            <f:selectItem itemLabel="adresse" itemValue="adresse"/>
+            </h:selectManyCheckbox   > 
+            <h:selectManyCheckbox id="pageDirection3" layout="grid" value="#{addpublicationController.champssup2}"  > 
+            <f:selectItem itemLabel="edition" itemValue="edition"/>
+            <f:selectItem itemLabel="chapitre" itemValue="chapitre"/>
+            <f:selectItem itemLabel="organisation" itemValue="organisation"/>  
+            <f:selectItem itemLabel="etablissement" itemValue="etablissement"/>
+              
+         </h:selectManyCheckbox >  
+          
+         <p:commandButton id="pluschampsok"   action="#{addpublicationController.autrechamps()}" onclick="dlg.hide()"  value="OK" update=":form:panelchampsupp,:form:panelchampsupp3,:form:panelchampsupp2"  /> 
+    
+              
+             
+  </h:form>
+               </p:dialog>
+        
+        
+     
+         </div>      
+                
+
+        </h:body>
+
+    </f:view>
+</html>
+

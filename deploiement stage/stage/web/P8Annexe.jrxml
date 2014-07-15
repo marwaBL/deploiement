@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="346da01f-9c15-4cf7-ac41-4fea16a3bc8c">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nomCh" class="java.lang.String"/>
+	<field name="prenomCh" class="java.lang.String"/>
+	<field name="codeEtab" class="java.lang.Object"/>
+	<field name="annee" class="java.lang.Integer"/>
+	<field name="sujetRechCh" class="java.lang.String"/>
+	<field name="avancement" class="java.lang.Integer"/>
+	<field name="etaCodeEtab2" class="java.lang.Object"/>
+	<field name="cheIdCh" class="java.lang.Object"/>
+	<field name="gradeCh" class="java.lang.String"/>
+	<pageHeader>
+		<band height="29">
+			<staticText>
+				<reportElement uuid="5e066fc8-7561-4c54-bf49-dabaed4fe07a" x="323" y="7" width="182" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Liste des sujets de thèses]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="fb03e528-211f-48e7-a625-46bb8a8ded9f" x="4" y="0" width="82" height="27"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom du doctorant]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="46a454ed-59fa-45b0-b2c4-2ee5edb2897c" x="106" y="2" width="73" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etablissement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a0bfa58e-92af-40d5-a30a-04f65ca96791" x="197" y="0" width="67" height="42"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Année de la première inscription]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="93fa3c0e-737d-4927-8227-d96bc63b5817" x="654" y="2" width="53" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8baba800-52ac-4711-af64-d015da3d26ac" x="475" y="2" width="50" height="27"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Avanc (%)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="193808b6-8a1e-473f-a8c8-3638021b669c" x="286" y="2" width="161" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Intitulé du sujet de thèse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="decfe200-96c0-4884-b8ab-a88e501112dc" x="731" y="0" width="71" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etablissement]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="caf50cc4-c4d0-49ff-b615-b4b508a8333f" x="553" y="2" width="74" height="27"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nom et prénom de l'encadreur]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d5e2ac7b-6a5e-4137-a2f7-96a6d4501cc5" x="0" y="3" width="100" height="45"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nomCh}+" "+$F{prenomCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="33ef607c-057d-4e77-b55d-f3ffbdafcd38" x="107" y="3" width="73" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{codeEtab}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b800dce1-e75c-47cd-8b2d-f7496a9a0bdd" x="197" y="3" width="67" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{annee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="db99351b-a7bc-4dbc-8e34-2fe6690bc2c7" x="553" y="0" width="260" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{cheIdCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="37b98aca-a521-41ba-94e0-b3912a4b2a20" x="286" y="3" width="161" height="54"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sujetRechCh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="47515e53-199f-4782-a3cd-72ab3f5e307d" x="475" y="3" width="50" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{avancement}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="32">
+			<textField>
+				<reportElement uuid="d85cbf60-d6f2-4f83-a6a3-e5cb9c805bdb" x="286" y="2" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

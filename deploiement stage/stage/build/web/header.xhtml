@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  <f:view contentType="text/html">
+        <h:head>
+           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+               <link href="css/bootstrapgen.min.css" rel="stylesheet" />
+ 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+           
+        </h:head>
+<h:body>
+    
+<div class="navbar navbar-default"   style="width:1500px; height: 55px;margin:5px auto;">
+  
+  <div class="navbar-collapse collapse navbar-responsive-collapse" >
+      <h:form >
+           
+         <h:graphicImage value="image/accueil.png" styleClass="nav navbar-nav navbar-text" style="margin-right:-5px;"   /> 
+         <p:commandLink value="Accueil" styleClass="navbar-form navbar-left" action="#{accueilController.genereraccueil()}" style="padding:9px;"   /> 
+        
+         <p:commandLink id="pubLink" value="Publications" styleClass="navbar-form navbar-left" style="padding: 9px;" action="#{accueilController.redirectPublication()}"  actionListener="#{publicationController.genererlistpublication()}" />    
+          
+        <ul class="nav navbar-nav navbar-left" >
+    <li class="dropdown" >
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #208ff2;font: 15px Arial">Encadrements <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><p:commandLink value="Master" action="#{accueilController.redirectEncadrementMaster()}"/></li>
+          <li> <p:commandLink value="Thèse" /></li>
+        </ul>
+      </li>
+            </ul>
+          <!-- <p:commandLink id="imageBtn" value="Encadrements" type="button" styleClass="navbar-form navbar-left" style="padding: 5px;"   />
+    <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade" showEvent="mouseover" hideEvent="mousedown">
+        <h:panelGrid  id="p11" columns="1" cellpadding="7" width="150" > 
+            <p:commandLink value="Master" styleClass="navbar-form navbar-left"  action="#{accueilController.redirectEncadrementMaster()}" />  
+                     
+      <p:commandLink value="Thèse" styleClass="navbar-form navbar-left"  /> 
+        </h:panelGrid>
+    </p:overlayPanel>
+           <p:commandLink id="servicelink" value="Services" type="button" styleClass="navbar-form navbar-left" style="padding: 5px;"   />
+    <p:overlayPanel id="iservicePanel" for="servicelink" hideEffect="fade" showEvent="mouseover" hideEvent="mousedown">
+        <h:panelGrid  id="p" columns="1" cellpadding="7" width="150" > 
+        <p:commandLink value="Fiche Chercheur" styleClass="navbar-form navbar-left"  />  
+                     
+      <p:commandLink value="Bilan" styleClass="navbar-form navbar-left"  /> 
+        </h:panelGrid>
+    </p:overlayPanel>-->
+          <ul class="nav navbar-nav navbar-left"  >
+    <li class="dropdown" >
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #208ff2;font: 15px Arial;">Services <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><p:commandLink value="Fiche chercheur" ajax="false" action="#{bilanController.genererFicheChercheur()}"  /></li>
+            <li> <p:commandLink value="Bilan labo" action="#{bilanController.genererBilantest()}" ajax="false" /></li>
+            <li> <p:commandLink value="Annexe Bilan" action="#{bilanController.genererAnnexeBilantestsujetThese()}" ajax="false" /></li>
+        </ul>
+      </li>
+            </ul>
+          
+           <ul class="nav navbar-nav navbar-left"  >
+    <li class="dropdown" >
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #208ff2;font: 15px Arial;">Membres <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          
+            <li > <a href="#"  style="font: 15px Arial;">Membres Actifs<b class="caret"></b></a>
+        <ul >
+          
+            <li ><p:commandLink value="Corps A" ajax="false" action="#{accueilController.redirectionMembreActifCorpsA()}"  /></li>
+            <li ><p:commandLink value="Corps B" ajax="false" action="#{accueilController.redirectionMembreActifCorpsB()}"  /></li>
+            <li ><p:commandLink value="Doctorant" ajax="false"  action="membreActifEtudiantMaster.xhtml"   /></li>
+            <li ><p:commandLink value="Etudiant en Master" ajax="false" action="#{accueilController.redirectionMembreActifMaster()}"  /></li>
+           
+            </ul></li>
+           
+            </ul>
+           
+      </li>
+            </ul>
+            
+          <ul class="nav navbar-nav navbar-right" style="margin-left:-10px;" >
+    <li class="dropdown" >
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" > <b class="caret"></b></a>
+           
+        <ul class="dropdown-menu">
+            <li><p:commandLink value="Modifier Profile" action="#{accueilController.redirectionModifierProfil()}" /></li>
+            <li> <p:commandLink value="Deconnexion"  action="#{userController.logout()}" /></li>
+        </ul>
+      </li>
+            </ul> 
+          <p:graphicImage id="photo"  width="40" height="40" styleClass="imageforme"  value="#{accueilController.image}"  style="float: right ;margin: 9px;" /> 
+           
+           
+           
+           
+          <ul class="nav nav-pills" style="float: right ;padding: 9px;" >
+              <li><h:commandLink action="#{validationController.redirectionValidation()}"><p:graphicImage value="image/msg icon.png"  style="float: left; "  rendered="#{validationController.disable}"  /> 
+                      <span class="badge"  ><h:outputLabel value="#{validationController.nbdemande}" rendered="#{validationController.disable}" /> </span></h:commandLink></li>
+</ul>    
+      
+      </h:form>
+ </div>
+</div>
+          
+             
+ 
+</h:body>
+        </f:view>
+</html>

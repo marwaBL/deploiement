@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+               <link href="css/bootstrapgen.min.css" rel="stylesheet" />
+ 
+                
+ 
+ 
+                     
+           
+        </h:head>
+
+        <h:body>
+
+           
+  <ui:include src="header.xhtml" />                   
+               
+                   
+                     <h:form class="form-horizontal" style="width:1200px;margin:50px auto; " id="form" >
+            
+                      
+               
+                <p:growl id="messages" showDetail="true" life="2000"/>
+     
+      
+            <div class="well well-lg" style="width: 1200px; background: #ffffff ">        
+      
+                <ul class="nav nav-tabs" >
+ 
+  <li class="active"><a href="#perso" data-toggle="tab">Informations Personnelles</a></li>
+  <li class=""><a href="#pro" data-toggle="tab">Informations Professionnelles</a></li>
+    <!--<p:outputPanel id="panelsupp1" >
+        <p:outputPanel id="gridContainersupp1" layout="block"  rendered="#{modifierProfileController.displaypanelSupp()}" >
+       -->  
+  <li class=""><a href="#prosupp" data-toggle="tab">Informations Professionnelles Supplémentaires</a></li>
+       <!-- </p:outputPanel>
+    </p:outputPanel>-->
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active in" id="perso" style="padding-top: 30px;">
+        <div class="form-group">
+             <div class="col-lg-10 ">    
+            <p:graphicImage id="photo"  width="80" height="120"  value="#{accueilController.image}" styleClass="col-lg-2 control-label"  /> 
+            <h:outputLabel  value="#{modifierProfileController.ch.typeCh}"   styleClass="col-lg-2 control-label" style="margin-top: 20px;" />  
+           
+               
+             </div>
+        </div>
+         <p:overlayPanel id="photoch" for="photo" hideEffect="fade" >  
+             <p:fileUpload  mode="advanced" dragDropSupport="false"   fileUploadListener="#{accueilController.handleFileUpload}" update="photo,messages"
+                       cancelLabel="Annuler" label="Choisir" uploadLabel="Télécharger"
+                  sizeLimit="100000"  allowTypes="/(\.|\/)(gif|jpe?g|png)$/"  invalidSizeMessage="The maximum file size allowed is 10 Megabytes !"
+                 invalidFileMessage="You are allowed to upload only documents !" />
+ 
+    </p:overlayPanel> 
+  <div class="form-group">
+      
+        <h:outputLabel  value="Nom et Prénom: *"   styleClass="col-lg-2 control-label"  />  
+             
+       <div class="col-lg-10 ">
+          
+           <p:inputText id="nom" required="true"  requiredMessage="Nom obligatoire" value="#{modifierProfileController.ch.nomCh}" styleClass="form-controltest"/> 
+               <p:watermark for="nom" value="Nom" />
+                
+               <p:inputText id="prenom" required="true"  styleClass="form-controltest" style="margin-left: 20px;" requiredMessage="Prénom obligatoire" value="#{modifierProfileController.ch.prenomCh}" />  
+            
+        
+           <p:watermark for="prenom" value="Prénom" />
+              </div>
+    </div>
+     <div class="form-group">
+      
+        <div class="col-lg-10" >
+        <h:outputLabel  value="Sexe:"  styleClass="col-lg-2 control-label"  />  
+        <div class="col-lg-10">
+            <p:selectOneRadio id="sexe"  styleClass="radio" 
+                              requiredMessage="Vous devez indiquer la structure de recherche " value="#{modifierProfileController.ch.sexeCh}"
+                          required="true"      >  
+              <f:selectItem itemLabel="Femme" itemValue="Femme"   />  
+          <f:selectItem itemLabel="Homme" itemValue="Homme"  /> 
+              <p:ajax update="panelnomJF,sexe"  event="click"
+                      />
+            
+        </p:selectOneRadio>
+        </div>      
+                 
+        </div>
+       
+    </div>
+         <p:outputPanel id="panelnomJF" >
+        <p:outputPanel id="gridContainer" layout="block"  rendered="#{modifierProfileController.displaypanel()}" >
+         <div class="form-group">
+      
+        
+        <h:outputLabel  value="Nom jeune fille:"  styleClass="col-lg-2 control-label"  />  
+        <div class="col-lg-10">
+            
+      
+          
+            <p:inputText id="nomJF" styleClass="form-controltest" style="width: 40%" value="#{modifierProfileController.ch.nomJFCh}"/> 
+              
+              
+              </div>
+    </div>
+        </p:outputPanel>
+         </p:outputPanel>
+    <div class="form-group">
+      
+        
+        <h:outputLabel  value="Date de Naissance:"  styleClass="col-lg-2 control-label"  />  
+        <div class="col-lg-10">
+            <p:calendar effect="slide" id="datenais" required="true" value="#{modifierProfileController.ch.dateNaisCh}" size="45" requiredMessage="Vous devez indiquer la date de naissance"  /> 
+            
+           <h:outputLabel  value="Lieu de Naissance:" style="margin-left: 10px;margin-right: 10px;"  />  
+             
+      
+          
+           <p:inputText id="lieunais" styleClass="form-controltest" style="width: 26%" value="#{modifierProfileController.ch.lieuNaisCh}"/> 
+              
+              
+              </div>
+    </div>
+     <div class="form-group">
+      
+        
+        <h:outputLabel  value="CIN:"  styleClass="col-lg-2 control-label"  />  
+        <div class="col-lg-10">
+            <p:inputMask  id="cin"  label="cin"   mask="99999999" value="#{modifierProfileController.ch.cinCh}" styleClass="form-controltest"  style="width: 40%"/>
+     
+           <h:outputLabel  value="N°passport:" style="margin-left: 10px;margin-right: 10px;"  />  
+             
+      
+          
+           <p:inputText id="numpassport" styleClass="form-controltest" style="width: 31%" value="#{modifierProfileController.ch.passCh}"/> 
+              
+              
+              </div>
+    </div>
+        <div class="form-group">
+      
+        
+        <h:outputLabel  value="Téléphone:"  styleClass="col-lg-2 control-label"  />  
+        <div class="col-lg-10">
+            <p:inputText  id="tel"  label="tel"   styleClass="form-controltest"  style="width: 40%" value="#{modifierProfileController.ch.telCh}"/>
+     
+            <h:outputLabel  value="Email:" style="margin-left: 10px;margin-right: 50px;"  />  
+             
+      
+          
+           <p:inputText id="email" styleClass="form-controltest" style="width: 31%" value="#{modifierProfileController.ch.emailCh}"> 
+              <f:validator validatorId="controller.EmailValidator" />
+           </p:inputText>
+              </div>
+    </div>
+     
+   
+ </div>
+   
+
+    
+    <div class="tab-pane fade " id="pro" style="margin-top: 30px;">
+      <div class="form-group">
+     <h:outputLabel  value="Type:"  styleClass="col-lg-2 control-label"  />  
+        
+          <div class="col-lg-10">
+       
+              <h:selectOneMenu id="type" style="width: 75%; "  styleClass="form-control" value="#{modifierProfileController.ch.typeCh}" >  
+               
+                <f:selectItem itemLabel="" itemValue="" />  
+                 <f:selectItem itemLabel="Etudiant en Master" itemValue="Etudiant en Master" /> 
+                 <f:selectItem itemLabel="Doctorant" itemValue="Doctorant" /> 
+                 <f:selectItem itemLabel="Docteur" itemValue="Docteur" /> 
+                 <f:selectItem itemLabel="Docteur Habilité" itemValue="Docteur Habilité" /> 
+                
+            </h:selectOneMenu> 
+        
+        
+      </div>
+    </div>
+         <div class="form-group">
+     <h:outputLabel  value="Fonction:"  styleClass="col-lg-2 control-label"  />  
+        
+          <div class="col-lg-10">
+       
+              <p:inputText id="fonction" styleClass="form-controltest" style="width: 15%" value="#{modifierProfileController.ch.fonctionCh}"/>  
+         
+         
+              <h:outputLabel  value="Université:"  style="margin-left: 10px;margin-right: 10px;"  />  
+       
+              <h:selectOneMenu id="univ" styleClass="form-controltest" style="width: 25%;"  value="#{modifierProfileController.univF}" >  
+               
+                 <f:selectItem itemLabel="Universite" itemValue="Universite" /> 
+                 <f:selectItems value="#{modifierProfileController.listUnivG}"  /> 
+                 <p:ajax update="etab"  event="change"
+                         listener="#{modifierProfileController.findEtablissementByCodeUniv()}"    /> 
+            </h:selectOneMenu> 
+     
+         
+          <h:outputLabel  value="Etablissement:"  style="margin-left: 10px;margin-right: 10px;" />  
+       
+          <h:selectOneMenu id="etab" style="width: 30%;"  styleClass="form-controltest" value="#{modifierProfileController.etabF}" >  
+               
+                 <f:selectItem itemLabel="Etablissement" itemValue="Etablissement" /> 
+                 <f:selectItems value="#{modifierProfileController.listEtabF}"  />  
+            </h:selectOneMenu> 
+        
+        
+      </div>
+    </div>
+        
+          <div class="form-group">
+     <h:outputLabel  value="Grade:"  styleClass="col-lg-2 control-label"  />  
+        
+          <div class="col-lg-10">
+       
+              <h:selectOneMenu id="grade" style="width: 15%;" styleClass="form-controltest" value="#{modifierProfileController.ch.gradeCh}" >  
+               
+                  <f:selectItem itemLabel="" itemValue="" />  
+                 <f:selectItem itemLabel="Assistant" itemValue="Assistant" /> 
+                 <f:selectItem itemLabel="Maitre Assistant" itemValue="Maitre assistant" /> 
+                 <f:selectItem itemLabel="Professeur Technologue" itemValue="Professeur" />
+                 <f:selectItem itemLabel="Maitre de conference" itemValue="Maitre de conférence" /> 
+                    <f:selectItem itemLabel="Professeur" itemValue="Professeur" /> 
+
+            </h:selectOneMenu> 
+         
+         
+          <h:outputLabel  value="Université:" style="margin-left: 10px;margin-right: 10px;"    />  
+       
+          <h:selectOneMenu id="univg" styleClass="form-controltest" style="width: 25%;" value="#{modifierProfileController.univG}" >  
+               
+                 <f:selectItem itemLabel="Universite" itemValue="Universite" /> 
+                 <f:selectItems value="#{modifierProfileController.listUnivG}"  /> 
+                  <p:ajax update="etabg"  event="change"
+                         listener="#{modifierProfileController.findEtablissementByCodeUniv()}"    /> 
+            </h:selectOneMenu> 
+     
+         
+          <h:outputLabel  value="Etablissement:"  style="margin-left: 10px;margin-right: 10px;" />  
+       
+          <h:selectOneMenu id="etabg" style="width: 30%;"  styleClass="form-controltest" value="#{modifierProfileController.etabG}" >  
+               
+                 <f:selectItem itemLabel="Etablissement" itemValue="Etablissement" /> 
+                 <f:selectItems value="#{modifierProfileController.listEtabG}"  />  
+                 
+            </h:selectOneMenu> 
+        
+        
+      </div>
+    </div>
+       <div  class="form-group">
+     <h:outputLabel  value="Diplome:"  styleClass="col-lg-2 control-label"  />  
+        
+          <div class="col-lg-10">
+       
+              <p:inputText id="diplome" styleClass="form-controltest" style="width: 15%"/>  
+          <h:outputLabel  value="Inscription:" style="margin-left: 10px;margin-right: 9px;"  />  
+       
+           <p:inputMask  id="annee"  label="annee"   mask="9999"  styleClass="form-controltest"  style="width: 25%" />
+        <p:watermark for="annee" value="annee" />
+        
+         
+          <h:outputLabel  value="Etablissement:" style="margin-left: 10px;margin-right: 10px;"   />  
+       
+         <p:inputText id="etabdiplome" styleClass="form-controltest" style="width: 30%"/>  
+         
+     
+         
+         
+        
+      </div>
+    </div>
+        
+     </div>
+   
+    <div class="tab-pane fade" id="prosupp" style="margin-top: 30px;">
+       <div class="form-group">
+     <h:outputLabel  value="Sujet:"  styleClass="col-lg-2 control-label"  />  
+        
+          <div class="col-lg-10">
+       
+              <h:inputText id="sujet" styleClass="form-control" style="width: 75%" value="#{modifierProfileController.ch.sujetRechCh}" />  
+               
+               
+        
+      </div>
+    </div>
+         <div  class="form-group">
+     <h:outputLabel  value="Université:"  styleClass="col-lg-2 control-label"  />  
+        
+          <div class="col-lg-10">
+       
+              <p:inputText id="univsupp" styleClass="form-controltest" style="width: 25%"/> 
+               <h:outputLabel  value="Etablissement:" style="margin-left: 10px;margin-right: 10px;"   />  
+       
+         <p:inputText id="etabsupp" styleClass="form-controltest" style="width: 25%"/>  
+         
+          <h:outputLabel  value="Inscription:" style="margin-left: 10px;margin-right: 9px;"  />  
+       
+          <p:inputMask  id="anneesupp"  label="annee" value="#{modifierProfileController.ch.annee}"  mask="9999"  styleClass="form-controltest"  style="width: 20%"/>
+        <p:watermark for="anneesupp" value="annee" />
+        
+         
+         
+     
+         
+         
+        
+      </div>
+    </div>
+        <div  class="form-group">
+     <h:outputLabel  value="Directeur:"  styleClass="col-lg-2 control-label"  />  
+        
+          <div class="col-lg-10">
+       
+              <p:inputText id="nomdirecteur" styleClass="form-controltest" style="width: 33%;" value="#{modifierProfileController.nomDirecteur}"/> 
+              
+        <p:watermark for="nomdirecteur" value="Nom" />
+        <p:inputText id="prenomdirecteur" styleClass="form-controltest" style="width: 33%;margin-left: 20px;" value="#{modifierProfileController.prenomDirecteur}"/>  
+         
+          
+        <p:watermark for="prenomdirecteur" value="Prénom" />
+        
+         
+         
+     
+         
+         
+        
+      </div>
+    </div>
+    </div>
+       
+   <h:commandButton value="Modifier"     styleClass="btn btn-info"/> 
+                   
+            
+                
+</div>
+               
+      </div>      
+             
+         
+            </h:form>
+                   
+               
+
+        </h:body>
+
+    </f:view>
+</html>
+

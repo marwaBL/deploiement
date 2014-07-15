@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="testpub.xhtml" x="965" y="114" zoom="true"/>
+        <Node id="membreActifEtudiantMaster.xhtml" x="647" y="151" zoom="true"/>
+        <Node id="membreActifCorpsB.xhtml" x="369" y="9" zoom="true"/>
+        <Node id="listepublication.xhtml" x="497" y="343" zoom="false"/>
+        <Node id="compteinactive.xhtml" x="-206" y="227" zoom="true"/>
+        <Node id="membreActifCorpsA.xhtml" x="-209" y="63" zoom="true"/>
+        <Node id="modifierProfile.xhtml" x="690" y="240" zoom="true"/>
+        <Node id="newhtml.html" x="964" y="74" zoom="false"/>
+        <Node id="testjasper.xhtml" x="688" y="18" zoom="true"/>
+        <Node id="encadrementMaster.xhtml" x="651" y="523" zoom="true"/>
+        <Node id="index.xhtml" x="133" y="194" zoom="true"/>
+        <Node id="header.xhtml" x="9" y="5" zoom="true"/>
+        <Node id="ajoutpublication.xhtml" x="280" y="458" zoom="true"/>
+        <Node id="validation.xhtml" x="139" y="314" zoom="true"/>
+        <Node id="compte.xhtml" x="74" y="55" zoom="false"/>
+        <Node id="welcome.xhtml" x="370" y="118" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

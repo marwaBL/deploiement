@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  <f:view contentType="text/html">
+        <h:head>
+           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+               <link href="css/bootstrapgen.min.css" rel="stylesheet" />
+ 
+                     
+           
+        </h:head>
+<h:body>
+    
+<!--<div class="navbar navbar-default"   style="width:1500px;text-align:center;margin:5px auto;">
+  
+  <div class="navbar-collapse collapse navbar-responsive-collapse">-->
+      <h:form >
+    
+      <!--    <h:graphicImage value="image/user-blue.png" styleClass="nav navbar-nav navbar-right"   />
+            <h:graphicImage value="image/accueil.png" styleClass="nav navbar-nav navbar-text"   />    
+            <p:commandLink id="pubLink" value="Publications" styleClass="navbar-form navbar-left" style="padding: 5px;"  />    
+           <li class="dropdown open">
+        <p:commandLink id="encadrementLink" value="Encadrement" styleClass="nav navbar-nav navbar-toggle" style="padding: 5px;"  >    
+          
+         </p:commandLink>
+        <ul class="dropdown-menu">
+          <li><p:commandLink id="encadrementMasterLink" value="Master"/>    
+          </li>
+          <li><p:commandLink id="encadrementtheseLink" value="Thèse"/>  </li>
+         
+        </ul>
+      </li>-->
+      
+            <p:menubar  styleClass="navbar navbar-default" style="width:1500px;text-align:center;margin:5px auto; color: #208ff2" > 
+                 <f:facet name="options" >  
+                     <h:graphicImage value="image/user-blue.png" styleClass="nav navbar-nav navbar-right"  style="margin-right:30px; color: #208ff2 "  />
+                 </f:facet>
+                <p:menuitem     icon="ui-icon-home"  styleClass="navbar-form navbar-right" style="margin: 5px;"/>  
+             
+           
+           
+        
+  
+                 <p:menuitem  value="Publications" styleClass="navbar-form navbar-left" style="margin: 5px;" />  
+            
+       
+  
+                            <p:submenu label="Encadrement"  styleClass="navbar-form navbar-left" style="margin: 5px;"  >  
+            <p:menuitem value="Master"  url="faces/EncadrementMaster.xhtml" />  
+            <p:menuitem value="Thèse" url="faces/EncadrementThese.xhtml" />  
+               
+              
+        </p:submenu>  
+  
+                            <p:submenu  label="Services " styleClass="navbar-form navbar-left" style="margin: 5px;" >  
+              
+                                <p:menuitem value="Fiche chercheur" ajax="false" action="#{profilController.genererFicheChercheur()}" />  
+             
+            
+            
+        </p:submenu>  
+              </p:menubar>
+      </h:form>
+ <!-- </div>
+</div>-->
+          
+             
+    
+                   
+ 
+</h:body>
+        </f:view>
+</html>

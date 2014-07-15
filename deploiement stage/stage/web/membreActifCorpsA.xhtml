@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8" />
+		<title>Landing Page template</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+                <link href="css/autocomplete.css" rel="stylesheet" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+                
+ 
+                     
+           
+        </h:head>
+
+        <h:body>
+ 
+           
+            <h:form id="form1">
+               
+            <ui:include src="header.xhtml"  />
+              
+            </h:form>
+                
+
+              
+               
+                 
+    
+ 
+    
+              
+           <h:form id="form2" style="width:1500px;margin-left: 8%;margin-top: 30px;  ">
+                <p:growl id="growll" showDetail="true" sticky="true" life="2000"   />  
+              
+                <div class="form-group">
+                  <div class="col-lg-10">
+                      <p:dataTable id="cars" var="car" value="#{membreController.membreActifsCorpsA}" paginatorAlwaysVisible="false"
+                            paginator="true" rows="5"  emptyMessage="Liste vide"    
+        paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"  
+        rowsPerPageTemplate="5,10,15"  styleClass="borderless"  paginatorPosition="top">
+<f:facet name="header"  >  
+                <p:outputLabel   value="Liste des Membres actifs Corps A " />
+           
+                          
+                            
+                          
+            </f:facet> 
+                   <p:column >
+                       <p:commandButton id="selectButton"  update="@form"
+                                         oncomplete="carDialog.show()" icon="ui-icon-search" title="Détail"  >
+                            <f:setPropertyActionListener value="#{car}"
+                                                         target="#{membreController.chselected}" />
+                        </p:commandButton>
+                    </p:column>
+                   <p:column headerText="Nom et prénom" width="40">
+                        <h:outputText value="#{car.nomCh} #{car.prenomCh}" />
+                    </p:column>
+
+                  
+
+                   <p:column headerText="Grade"  >
+                       <h:outputText value="#{car.gradeCh}"   >
+                            
+                        </h:outputText>
+                    </p:column>
+                           <p:column headerText="Etablissement"  >
+                       <h:outputText value="#{car.etaCodeEtab2.libEtab}"   >
+                            
+                        </h:outputText>
+                    </p:column>
+                           <p:column headerText="Fonction"  >
+                       <h:outputText value="#{car.fonctionCh}"   >
+                            
+                        </h:outputText>
+                    </p:column>
+                        <p:column headerText="Etablissement"  >
+                       <h:outputText value="#{car.etaCodeEtab.libEtab}"   >
+                            
+                        </h:outputText>
+                    </p:column>    
+
+                    <p:column >
+                        <p:commandButton id="SaveButton"  update="@form"   
+                                         value="Déactiver" >
+                            <f:setPropertyActionListener value="#{car}" 
+                                                         target="#{membreController.chselected}" />
+                        </p:commandButton>
+                    </p:column>
+                    
+
+                </p:dataTable>
+                  </div>
+                </div>
+                <p:dialog header="Detail Chercheur" widgetVar="carDialog" resizable="false"
+                    id="carDlg" showEffect="fade" hideEffect="fade" modal="true">
+
+                    <h:panelGrid id="display" columns="2" cellpadding="4"
+                        style="margin:0 auto;">
+
+                        <p:graphicImage value="#{membreController.image}" width="80" height="80"/> 
+                        <h:panelGrid id="display3" columns="1" cellpadding="4">
+                        <h:outputText id="modelNo" value="#{membreController.chselected.nomCh} #{membreController.chselected.prenomCh}"  /> 
+                        <h:outputText id="modeltype" value="#{membreController.chselected.typeCh}"  /> 
+                        </h:panelGrid>
+                        <h:outputText id="CIN" value="CIN" />  
+                  <h:outputText  value="#{membreController.chselected.cinCh} " styleClass="col-lg-2 control-label" />  
+                  <h:outputText id="tel" value="Tel" />  
+                  <h:outputText  value="#{membreController.chselected.telCh} " styleClass="col-lg-2 control-label" />  
+                  
+
+
+                    </h:panelGrid>
+
+                </p:dialog>
+
+            </h:form>
+            
+             
+
+        </h:body>
+
+    </f:view>
+</html>
+
